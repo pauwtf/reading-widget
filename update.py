@@ -3,7 +3,7 @@ import requests
 
 from notion import HEADERS, BOOK_LOG_DATABASE_URL
 from books import build_current_book
-from quotes import get_quotes_for_book, get_random_quote
+from quotes import get_quotes_for_book, get_random_quote, get_quote_stats
 
 
 payload = {
@@ -52,15 +52,31 @@ current_book = build_current_book(book)
 
 quotes = get_quotes_for_book(book_id)
 
+
 current_book["quote"] = get_random_quote(quotes)
+
+current_book["quoteStats"] = get_quote_stats(quotes)
 
 
 print("\n========== LIBRO ACTUAL ==========")
-print(json.dumps(current_book, indent=4, ensure_ascii=False))
+
+print(
+    json.dumps(
+        current_book,
+        indent=4,
+        ensure_ascii=False
+    )
+)
+
 print("=================================\n")
 
 
-with open("currentBook.json", "w", encoding="utf-8") as f:
+with open(
+    "currentBook.json",
+    "w",
+    encoding="utf-8"
+) as f:
+
     json.dump(
         current_book,
         f,
