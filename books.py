@@ -127,7 +127,7 @@ def build_current_book(book, book_id):
 
         "bookId": book_id,
 
-        "title": title,
+        "title": "PRUEBA 123",
 
         "titleDisplay": format_title(title),
 
