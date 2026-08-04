@@ -3,6 +3,7 @@ import requests
 
 from notion import HEADERS, BOOK_LOG_DATABASE_URL
 from books import build_current_book
+from quotes import get_quotes_for_book, get_random_quote
 
 
 payload = {
@@ -31,7 +32,11 @@ if not data["results"]:
     raise Exception("No hay ningún libro marcado como Actual")
 
 
-book = data["results"][0]["properties"]
+book_page = data["results"][0]
+
+book_id = book_page["id"]
+
+book = book_page["properties"]
 
 
 print("\n========== PROPIEDADES ENCONTRADAS ==========")
@@ -43,6 +48,11 @@ print("=============================================\n")
 
 
 current_book = build_current_book(book)
+
+
+quotes = get_quotes_for_book(book_id)
+
+current_book["quote"] = get_random_quote(quotes)
 
 
 print("\n========== LIBRO ACTUAL ==========")
