@@ -1,19 +1,19 @@
 {
-    "title": "Nos Acompañan Los Muertos",
-    "author": "Rafael Perez Gay",
-    "genre": "",
-    "currentPage": 29,
-    "totalPages": 194,
-    "progress": 15,
-    "updatedAt": "2026-08-04T02:58:56.739016+00:00",
+    "title": "La Insoportable Levedad Del Ser",
+    "author": "Milan Kundera",
+    "genre": "Filosófico",
+    "currentPage": 329,
+    "totalPages": 329,
+    "progress": 100,
+    "updatedAt": "2026-08-04T03:02:38.152437+00:00",
     "quote": {
-        "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
-        "text": "Viajar es conocer idiotas que hablan otras lenguas",
-        "page": 13,
-        "favorite": true
+        "id": "3a025802-a031-80a6-9db7-d683105483c1",
+        "text": "… y siempre contra Norteamérica, siempre contra las masacres, Europa marcha para no perder el ritmo de los acontecimientos y que ninguno se le escape…",
+        "page": 281,
+        "favorite": false
     },
     "quoteStats": {
-        "total": 1,
-        "favorites": 1
+        "total": 21,
+        "favorites": 15
     }
 }
