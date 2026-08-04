@@ -53,12 +53,18 @@ def get_random_quote(quotes):
 
     properties = quote["properties"]
 
-    print("\n========== PROPIEDADES FRASE ==========")
+
+    print("\n========== DATOS FRASE ==========")
 
     for key, value in properties.items():
-        print(f"{key:<20} -> {value['type']}")
 
-    print("=======================================\n")
+        print("NOMBRE:", repr(key))
+        print("TIPO:", value["type"])
+
+        if value["type"] == "checkbox":
+            print("VALOR:", value["checkbox"])
+
+    print("=================================\n")
 
 
     return {
