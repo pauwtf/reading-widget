@@ -1,105 +1,78 @@
-import os
 import json
 import requests
 from datetime import datetime, timezone
 
-NOTION_TOKEN = os.environ["NOTION_TOKEN"]
-DATABASE_ID = os.environ["NOTION_DATABASE_ID"]
+from notion import HEADERS, DATABASE_URL
 
-headers = {
-    "Authorization": f"Bearer {NOTION_TOKEN}",
-    "Content-Type": "application/json",
-    "Notion-Version": "2022-06-28"
+payload = {
+    "filter": {
+        "property": "Actual",
+        "checkbox": {
+            "equals": True
+        }
+    },
+    "page_size": 1
 }
 
-url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
+response = requests.post(DATABASE_URL, headers=HEADERS, json=payload)
+response.raise_for_status()
 
-all_books = []
-has_more = True
-next_cursor = None
+data = response.json()
 
-while has_more:
+if not data["results"]:
+    raise Exception("No hay ningún libro marcado como Actual")
 
-    payload = {}
+book = data["results"][0]["properties"]
 
-    if next_cursor:
-        payload["start_cursor"] = next_cursor
+print("\n========== PROPIEDADES ENCONTRADAS ==========")
+for key, value in book.items():
+    print(f"{key:<20} -> {value['type']}")
+print("=============================================\n")
 
-    response = requests.post(url, headers=headers, json=payload)
-    response.raise_for_status()
 
-    data = response.json()
+def get_title(prop):
+    if not prop["title"]:
+        return ""
+    return "".join(item["plain_text"] for item in prop["title"])
 
-    for page in data["results"]:
 
-        p = page["properties"]
+def get_formula_text(prop):
+    formula = prop["formula"]
 
-        def title(name):
-            return "".join(x["plain_text"] for x in p[name]["title"])
+    if formula["type"] == "string":
+        return formula["string"] or ""
 
-        def formula_text(name):
-            f = p[name]["formula"]
-            return f["string"] if f["type"] == "string" else ""
+    return ""
 
-        def number(name):
-            return p[name]["number"] or 0
 
-        def formula_number(name):
-            f = p[name]["formula"]
-            return f["number"] if f["type"] == "number" else 0
+def get_number(prop):
+    return prop["number"] if prop["number"] is not None else 0
 
-        estado = p["Estado"]["select"]["name"] if p["Estado"]["select"] else ""
 
-        book = {
-            "title": title("Titulo"),
-            "author": formula_text("Autor Nombre"),
-            "genre": formula_text("Genero Nombre"),
-            "month": formula_text("Mes Nombre"),
-            "year": formula_text("Año Nombre"),
-            "status": estado,
-            "currentPage": number("Página Actual"),
-            "totalPages": number("Total Páginas"),
-            "progress": round(formula_number("Progreso") * 100),
-            "updatedAt": datetime.now(timezone.utc).isoformat()
-        }
+def get_progress(prop):
+    formula = prop["formula"]
 
-        all_books.append(book)
+    if formula["type"] == "number" and formula["number"] is not None:
+        return round(formula["number"] * 100)
 
-    has_more = data["has_more"]
-    next_cursor = data["next_cursor"]
+    return 0
 
-print(f"{len(all_books)} libros encontrados.")
 
-with open("library.json", "w", encoding="utf-8") as f:
-    json.dump(all_books, f, ensure_ascii=False, indent=4)
+current_book = {
+    "title": get_title(book["Titulo"]),
+    "author": get_formula_text(book["Autor Nombre"]),
+    "genre": get_formula_text(book["Genero Nombre"]),
+    "currentPage": get_number(book["Página Actual"]),
+    "totalPages": get_number(book["Total Páginas"]),
+    "progress": get_progress(book["Progreso"]),
+    "updatedAt": datetime.now(timezone.utc).isoformat()
+}
 
-current = next((b for b in all_books if b["status"] == "Leyendo"), None)
+print("\n========== LIBRO ACTUAL ==========")
+print(json.dumps(current_book, indent=4, ensure_ascii=False))
+print("=================================\n")
 
 with open("currentBook.json", "w", encoding="utf-8") as f:
-    json.dump(current, f, ensure_ascii=False, indent=4)
+    json.dump(current_book, f, ensure_ascii=False, indent=4)
 
-finished = [b for b in all_books if b["status"] == "Leído"]
-
-stats = {
-    "booksRead": len(finished),
-    "pagesRead": sum(b["totalPages"] for b in finished),
-    "currentlyReading": len([b for b in all_books if b["status"] == "Leyendo"]),
-    "updatedAt": datetime.now(timezone.utc).isoformat()
-}
-
-with open("readingStats.json", "w", encoding="utf-8") as f:
-    json.dump(stats, f, ensure_ascii=False, indent=4)
-
-streak = {
-    "currentStreak": 0,
-    "longestStreak": 0,
-    "updatedAt": datetime.now(timezone.utc).isoformat()
-}
-
-with open("streak.json", "w", encoding="utf-8") as f:
-    json.dump(streak, f, ensure_ascii=False, indent=4)
-
-print("✅ library.json generado")
-print("✅ currentBook.json generado")
-print("✅ readingStats.json generado")
-print("✅ streak.json generado")
+print("✅ currentBook.json generado correctamente")
