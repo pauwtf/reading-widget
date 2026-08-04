@@ -44,6 +44,11 @@ def get_number(prop):
     return prop["number"] if prop["number"] is not None else 0
 
 
+def get_checkbox(prop):
+
+    return prop["checkbox"]
+
+
 def get_random_quote(quotes):
 
     if not quotes:
@@ -54,22 +59,9 @@ def get_random_quote(quotes):
     properties = quote["properties"]
 
 
-    print("\n========== DATOS FRASE ==========")
-
-    for key, value in properties.items():
-
-        print("NOMBRE:", repr(key))
-        print("TIPO:", value["type"])
-
-        if value["type"] == "checkbox":
-            print("VALOR:", value["checkbox"])
-
-    print("=================================\n")
-
-
     return {
         "id": quote["id"],
         "text": get_text(properties["Frase"]),
         "page": get_number(properties["Página"]),
-        "favorite": False
+        "favorite": get_checkbox(properties["  "])
     }
