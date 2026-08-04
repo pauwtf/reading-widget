@@ -46,7 +46,7 @@ book_page = data["results"][0]
 book_id = book_page["id"]
 
 book = book_page["properties"]
-
+print(book["Portada"])
 
 
 current_book = build_current_book(book)
