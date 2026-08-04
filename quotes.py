@@ -49,6 +49,25 @@ def get_checkbox(prop):
     return prop["checkbox"]
 
 
+def get_quote_stats(quotes):
+
+    total = len(quotes)
+
+    favorites = 0
+
+    for quote in quotes:
+
+        properties = quote["properties"]
+
+        if get_checkbox(properties["  "]):
+            favorites += 1
+
+    return {
+        "total": total,
+        "favorites": favorites
+    }
+
+
 def get_random_quote(quotes):
 
     if not quotes:
@@ -57,7 +76,6 @@ def get_random_quote(quotes):
     quote = random.choice(quotes)
 
     properties = quote["properties"]
-
 
     return {
         "id": quote["id"],
