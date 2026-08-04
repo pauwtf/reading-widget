@@ -14,61 +14,92 @@ headers = {
 
 url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
 
-payload = {
-    "filter": {
-        "property": "Estado",
-        "select": {
-            "equals": "Leyendo"
+all_books = []
+has_more = True
+next_cursor = None
+
+while has_more:
+
+    payload = {}
+
+    if next_cursor:
+        payload["start_cursor"] = next_cursor
+
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+
+    data = response.json()
+
+    for page in data["results"]:
+
+        p = page["properties"]
+
+        def title(name):
+            return "".join(x["plain_text"] for x in p[name]["title"])
+
+        def formula_text(name):
+            f = p[name]["formula"]
+            return f["string"] if f["type"] == "string" else ""
+
+        def number(name):
+            return p[name]["number"] or 0
+
+        def formula_number(name):
+            f = p[name]["formula"]
+            return f["number"] if f["type"] == "number" else 0
+
+        estado = p["Estado"]["select"]["name"] if p["Estado"]["select"] else ""
+
+        book = {
+            "title": title("Titulo"),
+            "author": formula_text("Autor Nombre"),
+            "genre": formula_text("Genero Nombre"),
+            "month": formula_text("Mes Nombre"),
+            "year": formula_text("Año Nombre"),
+            "status": estado,
+            "currentPage": number("Página Actual"),
+            "totalPages": number("Total Páginas"),
+            "progress": round(formula_number("Progreso") * 100),
+            "updatedAt": datetime.now(timezone.utc).isoformat()
         }
-    },
-    "page_size": 1
-}
 
-response = requests.post(url, headers=headers, json=payload)
-response.raise_for_status()
+        all_books.append(book)
 
-data = response.json()
+    has_more = data["has_more"]
+    next_cursor = data["next_cursor"]
 
-if not data["results"]:
-    raise Exception("No hay ningún libro con Estado = Leyendo")
+print(f"{len(all_books)} libros encontrados.")
 
-book = data["results"][0]["properties"]
+with open("library.json", "w", encoding="utf-8") as f:
+    json.dump(all_books, f, ensure_ascii=False, indent=4)
 
+current = next((b for b in all_books if b["status"] == "Leyendo"), None)
 
-def get_title(prop):
-    if not prop["title"]:
-        return ""
-    return "".join(item["plain_text"] for item in prop["title"])
+with open("currentBook.json", "w", encoding="utf-8") as f:
+    json.dump(current, f, ensure_ascii=False, indent=4)
 
+finished = [b for b in all_books if b["status"] == "Leído"]
 
-def get_formula_text(prop):
-    formula = prop["formula"]
-    if formula["type"] == "string":
-        return formula["string"] or ""
-    return ""
-
-
-def get_number(prop):
-    return prop["number"] if prop["number"] is not None else 0
-
-
-def get_progress(prop):
-    formula = prop["formula"]
-    if formula["type"] == "number" and formula["number"] is not None:
-        return round(formula["number"] * 100)
-    return 0
-
-
-current_book = {
-    "title": get_title(book["Titulo"]),
-    "author": get_formula_text(book["Autor Nombre"]),
-    "currentPage": get_number(book["Página Actual"]),
-    "totalPages": get_number(book["Total Páginas"]),
-    "progress": get_progress(book["Progreso"]),
+stats = {
+    "booksRead": len(finished),
+    "pagesRead": sum(b["totalPages"] for b in finished),
+    "currentlyReading": len([b for b in all_books if b["status"] == "Leyendo"]),
     "updatedAt": datetime.now(timezone.utc).isoformat()
 }
 
-with open("currentBook.json", "w", encoding="utf-8") as f:
-    json.dump(current_book, f, ensure_ascii=False, indent=4)
+with open("readingStats.json", "w", encoding="utf-8") as f:
+    json.dump(stats, f, ensure_ascii=False, indent=4)
 
-print("✅ currentBook.json generado correctamente")
+streak = {
+    "currentStreak": 0,
+    "longestStreak": 0,
+    "updatedAt": datetime.now(timezone.utc).isoformat()
+}
+
+with open("streak.json", "w", encoding="utf-8") as f:
+    json.dump(streak, f, ensure_ascii=False, indent=4)
+
+print("✅ library.json generado")
+print("✅ currentBook.json generado")
+print("✅ readingStats.json generado")
+print("✅ streak.json generado")
