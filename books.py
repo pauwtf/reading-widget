@@ -12,6 +12,29 @@ def get_title(prop):
     )
 
 
+def format_title(title):
+
+    words = title.split()
+
+    if len(words) <= 2:
+        return title
+
+    if len(words) == 3:
+        return (
+            words[0]
+            + "\n"
+            + " ".join(words[1:])
+        )
+
+    middle = len(words) // 2
+
+    return (
+        " ".join(words[:middle])
+        + "\n"
+        + " ".join(words[middle:])
+    )
+
+
 def get_formula_text(prop):
 
     formula = prop["formula"]
@@ -84,6 +107,10 @@ def get_status(progress):
 
 def build_current_book(book, book_id):
 
+    title = get_title(
+        book["Titulo"]
+    )
+
     current_page = get_number(
         book["Página Actual"]
     )
@@ -100,9 +127,9 @@ def build_current_book(book, book_id):
 
         "bookId": book_id,
 
-        "title": get_title(
-            book["Titulo"]
-        ),
+        "title": title,
+
+        "titleDisplay": format_title(title),
 
         "author": get_formula_text(
             book["Autor Nombre"]
