@@ -1,6 +1,7 @@
 {
     "bookId": "3b125802-a031-8065-b9f0-f8f986ce04aa",
     "title": "Nos Acompañan Los Muertos",
+    "titleDisplay": "Nos Acompañan\nLos Muertos",
     "author": "Rafael Perez Gay",
     "genre": "",
     "cover": "https://images.cdn3.buscalibre.com/fit-in/360x360/63/30/6330e8285c3c2898443ae5928d8587e9.jpg",
@@ -14,7 +15,7 @@
         "progressBar": "██░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-08-04T19:50:46.779405+00:00",
+    "updatedAt": "2026-08-04T19:58:37.316533+00:00",
     "quote": {
         "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
         "text": "Viajar es conocer idiotas que hablan otras lenguas",
