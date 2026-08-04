@@ -3,7 +3,11 @@ import requests
 
 from notion import HEADERS, BOOK_LOG_DATABASE_URL
 from books import build_current_book
-from quotes import get_quotes_for_book, get_random_quote, get_quote_stats
+from quotes import (
+    get_quotes_for_book,
+    get_random_quote,
+    get_quote_stats
+)
 
 
 payload = {
@@ -23,13 +27,18 @@ response = requests.post(
     json=payload
 )
 
+
 response.raise_for_status()
+
 
 data = response.json()
 
 
 if not data["results"]:
-    raise Exception("No hay ningún libro marcado como Actual")
+
+    raise Exception(
+        "No hay ningún libro marcado como Actual"
+    )
 
 
 book_page = data["results"][0]
@@ -39,23 +48,37 @@ book_id = book_page["id"]
 book = book_page["properties"]
 
 
+
 print("\n========== PROPIEDADES ENCONTRADAS ==========")
 
 for key, value in book.items():
-    print(f"{key:<20} -> {value['type']}")
+
+    print(
+        f"{key:<20} -> {value['type']}"
+    )
 
 print("=============================================\n")
+
 
 
 current_book = build_current_book(book)
 
 
+
 quotes = get_quotes_for_book(book_id)
 
 
-current_book["quote"] = get_random_quote(quotes)
 
-current_book["quoteStats"] = get_quote_stats(quotes)
+current_book["quote"] = get_random_quote(
+    quotes,
+    current_book["title"]
+)
+
+
+current_book["quoteStats"] = get_quote_stats(
+    quotes
+)
+
 
 
 print("\n========== LIBRO ACTUAL ==========")
@@ -69,6 +92,7 @@ print(
 )
 
 print("=================================\n")
+
 
 
 with open(
@@ -85,4 +109,6 @@ with open(
     )
 
 
-print("✅ currentBook.json generado correctamente")
+print(
+    "✅ currentBook.json generado correctamente"
+)
