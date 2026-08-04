@@ -74,10 +74,18 @@ def get_quote_stats(quotes):
     }
 
 
+# -------------------------
+# MEMORIA POR LIBRO
+# -------------------------
+
 def load_history():
 
     if not os.path.exists(HISTORY_FILE):
-        return []
+
+        return {
+            "books": {}
+        }
+
 
     with open(
         HISTORY_FILE,
@@ -85,18 +93,11 @@ def load_history():
         encoding="utf-8"
     ) as f:
 
-        data = json.load(f)
+        return json.load(f)
 
-    return data.get("shown", [])
 
 
 def save_history(history):
-
-    print("\n========== GUARDANDO HISTORIAL ==========")
-    print(history)
-    print("ARCHIVO:", HISTORY_FILE)
-    print("=========================================\n")
-
 
     with open(
         HISTORY_FILE,
@@ -105,31 +106,53 @@ def save_history(history):
     ) as f:
 
         json.dump(
-            {
-                "shown": history
-            },
+            history,
             f,
             ensure_ascii=False,
             indent=4
         )
 
 
-def choose_quote(quotes):
+
+def get_book_history(history, book_title):
+
+    if "books" not in history:
+
+        history["books"] = {}
+
+
+    if book_title not in history["books"]:
+
+        history["books"][book_title] = []
+
+
+    return history["books"][book_title]
+
+
+
+def choose_quote(quotes, book_title):
 
     history = load_history()
+
+    shown = get_book_history(
+        history,
+        book_title
+    )
 
 
     available_quotes = [
         q for q in quotes
-        if q["id"] not in history
+        if q["id"] not in shown
     ]
 
 
+    # Si ya vimos todas las frases del libro
     if not available_quotes:
 
-        history = []
+        shown.clear()
 
         available_quotes = quotes
+
 
 
     favorites = [
@@ -138,6 +161,7 @@ def choose_quote(quotes):
     ]
 
 
+    # 70% favoritas ❤️
     if favorites and random.random() < 0.7:
 
         selected = random.choice(favorites)
@@ -147,7 +171,8 @@ def choose_quote(quotes):
         selected = random.choice(available_quotes)
 
 
-    history.append(selected["id"])
+
+    shown.append(selected["id"])
 
     save_history(history)
 
@@ -155,13 +180,19 @@ def choose_quote(quotes):
     return selected
 
 
-def get_random_quote(quotes):
+
+def get_random_quote(quotes, book_title):
 
     if not quotes:
+
         return None
 
 
-    quote = choose_quote(quotes)
+    quote = choose_quote(
+        quotes,
+        book_title
+    )
+
 
     properties = quote["properties"]
 
