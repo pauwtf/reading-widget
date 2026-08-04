@@ -5,11 +5,11 @@
     "currentPage": 29,
     "totalPages": 194,
     "progress": 15,
-    "updatedAt": "2026-08-04T02:46:51.694179+00:00",
+    "updatedAt": "2026-08-04T02:50:29.679764+00:00",
     "quote": {
         "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
         "text": "Viajar es conocer idiotas que hablan otras lenguas",
         "page": 13,
-        "favorite": false
+        "favorite": true
     }
 }
