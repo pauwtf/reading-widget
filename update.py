@@ -49,18 +49,6 @@ book = book_page["properties"]
 
 
 
-print("\n========== PROPIEDADES ENCONTRADAS ==========")
-
-for key, value in book.items():
-
-    print(
-        f"{key:<20} -> {value['type']}"
-    )
-
-print("=============================================\n")
-
-
-
 current_book = build_current_book(book)
 
 
@@ -75,23 +63,50 @@ current_book["quote"] = get_random_quote(
 )
 
 
+
 current_book["quoteStats"] = get_quote_stats(
     quotes
 )
 
 
 
-print("\n========== LIBRO ACTUAL ==========")
+print("\n========== READING WIDGET ==========")
 
 print(
-    json.dumps(
-        current_book,
-        indent=4,
-        ensure_ascii=False
-    )
+    f"📖 {current_book['title']}"
 )
 
-print("=================================\n")
+print(
+    f"✍️ {current_book['author']}"
+)
+
+print(
+    f"📄 Página {current_book['currentPage']} / {current_book['totalPages']}"
+)
+
+print(
+    f"📊 Progreso: {current_book['progress']}%"
+)
+
+
+if current_book.get("quote"):
+
+    print("\n💬 Frase:")
+
+    print(
+        f'"{current_book["quote"]["text"]}"'
+    )
+
+    print(
+        f'📍 Página {current_book["quote"]["page"]}'
+    )
+
+    if current_book["quote"]["favorite"]:
+
+        print("❤️ Favorita")
+
+
+print("\n====================================\n")
 
 
 
