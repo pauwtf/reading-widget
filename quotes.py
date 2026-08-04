@@ -1,7 +1,12 @@
 import random
 import requests
+import json
+import os
 
 from notion import HEADERS, QUOTES_DATABASE_URL
+
+
+HISTORY_FILE = "quote_history.json"
 
 
 def get_quotes_for_book(book_id):
@@ -68,25 +73,81 @@ def get_quote_stats(quotes):
     }
 
 
+def load_history():
+
+    if not os.path.exists(HISTORY_FILE):
+        return []
+
+    with open(
+        HISTORY_FILE,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        data = json.load(f)
+
+    return data.get("shown", [])
+
+
+def save_history(history):
+
+    with open(
+        HISTORY_FILE,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            {
+                "shown": history
+            },
+            f,
+            ensure_ascii=False,
+            indent=4
+        )
+
+
 def choose_quote(quotes):
 
-    favorites = []
-
-    for quote in quotes:
-
-        properties = quote["properties"]
-
-        if get_checkbox(properties["  "]):
-            favorites.append(quote)
+    history = load_history()
 
 
-    # 70% favoritas ❤️ si existen
+    available_quotes = [
+        q for q in quotes
+        if q["id"] not in history
+    ]
+
+
+    # Si ya vimos todas, reiniciamos
+    if not available_quotes:
+
+        history = []
+
+        available_quotes = quotes
+
+
+    favorites = [
+        q for q in available_quotes
+        if get_checkbox(q["properties"]["  "])
+    ]
+
+
+    # 70% favoritas ❤️
     if favorites and random.random() < 0.7:
-        return random.choice(favorites)
+
+        selected = random.choice(favorites)
+
+    else:
+
+        selected = random.choice(available_quotes)
 
 
-    # 30% cualquier frase
-    return random.choice(quotes)
+    history.append(selected["id"])
+
+    save_history(history)
+
+
+    return selected
 
 
 def get_random_quote(quotes):
