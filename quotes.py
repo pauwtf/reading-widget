@@ -68,14 +68,37 @@ def get_quote_stats(quotes):
     }
 
 
+def choose_quote(quotes):
+
+    favorites = []
+
+    for quote in quotes:
+
+        properties = quote["properties"]
+
+        if get_checkbox(properties["  "]):
+            favorites.append(quote)
+
+
+    # 70% favoritas ❤️ si existen
+    if favorites and random.random() < 0.7:
+        return random.choice(favorites)
+
+
+    # 30% cualquier frase
+    return random.choice(quotes)
+
+
 def get_random_quote(quotes):
 
     if not quotes:
         return None
 
-    quote = random.choice(quotes)
+
+    quote = choose_quote(quotes)
 
     properties = quote["properties"]
+
 
     return {
         "id": quote["id"],
