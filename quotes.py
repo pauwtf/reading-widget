@@ -1,3 +1,4 @@
+
 import random
 import requests
 import json
@@ -91,6 +92,12 @@ def load_history():
 
 def save_history(history):
 
+    print("\n========== GUARDANDO HISTORIAL ==========")
+    print(history)
+    print("ARCHIVO:", HISTORY_FILE)
+    print("=========================================\n")
+
+
     with open(
         HISTORY_FILE,
         "w",
@@ -118,7 +125,6 @@ def choose_quote(quotes):
     ]
 
 
-    # Si ya vimos todas, reiniciamos
     if not available_quotes:
 
         history = []
@@ -132,7 +138,6 @@ def choose_quote(quotes):
     ]
 
 
-    # 70% favoritas ❤️
     if favorites and random.random() < 0.7:
 
         selected = random.choice(favorites)
