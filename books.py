@@ -53,51 +53,36 @@ def get_cover(prop):
     files = prop["files"]
 
     if not files:
-
         return ""
-
 
     file = files[0]
 
-
     if file["type"] == "external":
-
         return file["external"]["url"]
 
-
     if file["type"] == "file":
-
         return file["file"]["url"]
-
 
     return ""
 
 
 def create_progress_bar(progress, length=10):
 
-    filled = round(
-        progress / 100 * length
-    )
-
+    filled = round(progress / 100 * length)
     empty = length - filled
 
-    return (
-        "█" * filled
-        +
-        "░" * empty
-    )
+    return "█" * filled + "░" * empty
 
 
 def get_status(progress):
 
     if progress >= 100:
-
         return "Terminado"
 
     return "Leyendo"
 
 
-def build_current_book(book):
+def build_current_book(book, book_id):
 
     current_page = get_number(
         book["Página Actual"]
@@ -111,8 +96,9 @@ def build_current_book(book):
         book["Progreso"]
     )
 
-
     return {
+
+        "bookId": book_id,
 
         "title": get_title(
             book["Titulo"]
@@ -136,11 +122,15 @@ def build_current_book(book):
 
         "progress": progress,
 
+        "progressValue": round(progress / 100, 2),
 
         "display": {
 
             "pageText":
                 f"Página {current_page} de {total_pages}",
+
+            "progressText":
+                f"{progress}%",
 
             "progressBar":
                 create_progress_bar(progress),
@@ -149,7 +139,6 @@ def build_current_book(book):
                 get_status(progress)
 
         },
-
 
         "updatedAt":
             datetime.now(
