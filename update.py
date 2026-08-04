@@ -27,12 +27,9 @@ response = requests.post(
     json=payload
 )
 
-
 response.raise_for_status()
 
-
 data = response.json()
-
 
 if not data["results"]:
 
@@ -46,22 +43,30 @@ book_page = data["results"][0]
 book_id = book_page["id"]
 
 book = book_page["properties"]
-print(book["Portada"])
 
 
-current_book = build_current_book(book)
-
+current_book = build_current_book(
+    book,
+    book_id
+)
 
 
 quotes = get_quotes_for_book(book_id)
 
 
-
 current_book["quote"] = get_random_quote(
     quotes,
-    current_book["title"]
+    book_id
 )
 
+
+if current_book["quote"]:
+
+    current_book["quote"]["favoriteIcon"] = (
+        "♥"
+        if current_book["quote"]["favorite"]
+        else ""
+    )
 
 
 current_book["quoteStats"] = get_quote_stats(
@@ -69,45 +74,31 @@ current_book["quoteStats"] = get_quote_stats(
 )
 
 
+print("\n========== READING WIDGET ==========\n")
 
-print("\n========== READING WIDGET ==========")
-
-print(
-    f"📖 {current_book['title']}"
-)
-
-print(
-    f"✍️ {current_book['author']}"
-)
-
-print(
-    f"📄 Página {current_book['currentPage']} / {current_book['totalPages']}"
-)
-
-print(
-    f"📊 Progreso: {current_book['progress']}%"
-)
-
+print(current_book["title"])
+print(current_book["author"])
+print(current_book["display"]["pageText"])
+print(current_book["display"]["progressBar"])
+print(current_book["display"]["progressText"])
 
 if current_book.get("quote"):
 
-    print("\n💬 Frase:")
+    print()
 
     print(
         f'"{current_book["quote"]["text"]}"'
     )
 
     print(
-        f'📍 Página {current_book["quote"]["page"]}'
+        f'Página {current_book["quote"]["page"]}'
     )
 
-    if current_book["quote"]["favorite"]:
-
-        print("❤️ Favorita")
-
+    print(
+        current_book["quote"]["favoriteIcon"]
+    )
 
 print("\n====================================\n")
-
 
 
 with open(
