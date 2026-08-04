@@ -65,9 +65,8 @@ def get_random_quote(quotes):
 
     print("=======================================\n")
 
-
     return {
         "text": get_text(properties["Frase"]),
         "page": get_number(properties["Página"]),
-        "favorite": get_checkbox(properties["<3"])
+        "favorite": False
     }
