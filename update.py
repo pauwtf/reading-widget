@@ -1,8 +1,8 @@
 import json
 import requests
-from datetime import datetime, timezone
 
 from notion import HEADERS, DATABASE_URL
+from books import build_current_book
 
 payload = {
     "filter": {
@@ -14,7 +14,12 @@ payload = {
     "page_size": 1
 }
 
-response = requests.post(DATABASE_URL, headers=HEADERS, json=payload)
+response = requests.post(
+    DATABASE_URL,
+    headers=HEADERS,
+    json=payload
+)
+
 response.raise_for_status()
 
 data = response.json()
@@ -29,44 +34,7 @@ for key, value in book.items():
     print(f"{key:<20} -> {value['type']}")
 print("=============================================\n")
 
-
-def get_title(prop):
-    if not prop["title"]:
-        return ""
-    return "".join(item["plain_text"] for item in prop["title"])
-
-
-def get_formula_text(prop):
-    formula = prop["formula"]
-
-    if formula["type"] == "string":
-        return formula["string"] or ""
-
-    return ""
-
-
-def get_number(prop):
-    return prop["number"] if prop["number"] is not None else 0
-
-
-def get_progress(prop):
-    formula = prop["formula"]
-
-    if formula["type"] == "number" and formula["number"] is not None:
-        return round(formula["number"] * 100)
-
-    return 0
-
-
-current_book = {
-    "title": get_title(book["Titulo"]),
-    "author": get_formula_text(book["Autor Nombre"]),
-    "genre": get_formula_text(book["Genero Nombre"]),
-    "currentPage": get_number(book["Página Actual"]),
-    "totalPages": get_number(book["Total Páginas"]),
-    "progress": get_progress(book["Progreso"]),
-    "updatedAt": datetime.now(timezone.utc).isoformat()
-}
+current_book = build_current_book(book)
 
 print("\n========== LIBRO ACTUAL ==========")
 print(json.dumps(current_book, indent=4, ensure_ascii=False))
