@@ -1,4 +1,3 @@
-
 import random
 import requests
 import json
@@ -93,7 +92,22 @@ def load_history():
         encoding="utf-8"
     ) as f:
 
-        return json.load(f)
+        history = json.load(f)
+
+
+    # Crear estructura nueva si no existe
+    if "books" not in history:
+
+        history["books"] = {}
+
+
+    # Eliminar memoria antigua global
+    if "shown" in history:
+
+        del history["shown"]
+
+
+    return history
 
 
 
@@ -116,11 +130,6 @@ def save_history(history):
 
 def get_book_history(history, book_title):
 
-    if "books" not in history:
-
-        history["books"] = {}
-
-
     if book_title not in history["books"]:
 
         history["books"][book_title] = []
@@ -134,6 +143,7 @@ def choose_quote(quotes, book_title):
 
     history = load_history()
 
+
     shown = get_book_history(
         history,
         book_title
@@ -146,7 +156,8 @@ def choose_quote(quotes, book_title):
     ]
 
 
-    # Si ya vimos todas las frases del libro
+    # Si ya mostramos todas las frases
+    # de este libro, reiniciamos
     if not available_quotes:
 
         shown.clear()
@@ -173,6 +184,7 @@ def choose_quote(quotes, book_title):
 
 
     shown.append(selected["id"])
+
 
     save_history(history)
 
