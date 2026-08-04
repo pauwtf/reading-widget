@@ -12,7 +12,6 @@ def get_title(prop):
     )
 
 
-
 def get_formula_text(prop):
 
     formula = prop["formula"]
@@ -24,7 +23,6 @@ def get_formula_text(prop):
     return ""
 
 
-
 def get_number(prop):
 
     return (
@@ -32,7 +30,6 @@ def get_number(prop):
         if prop["number"] is not None
         else 0
     )
-
 
 
 def get_progress(prop):
@@ -51,6 +48,30 @@ def get_progress(prop):
     return 0
 
 
+def get_cover(prop):
+
+    files = prop["files"]
+
+    if not files:
+
+        return ""
+
+
+    file = files[0]
+
+
+    if file["type"] == "external":
+
+        return file["external"]["url"]
+
+
+    if file["type"] == "file":
+
+        return file["file"]["url"]
+
+
+    return ""
+
 
 def create_progress_bar(progress, length=10):
 
@@ -67,7 +88,6 @@ def create_progress_bar(progress, length=10):
     )
 
 
-
 def get_status(progress):
 
     if progress >= 100:
@@ -75,7 +95,6 @@ def get_status(progress):
         return "Terminado"
 
     return "Leyendo"
-
 
 
 def build_current_book(book):
@@ -105,6 +124,10 @@ def build_current_book(book):
 
         "genre": get_formula_text(
             book["Genero Nombre"]
+        ),
+
+        "cover": get_cover(
+            book["Portada"]
         ),
 
         "currentPage": current_page,
