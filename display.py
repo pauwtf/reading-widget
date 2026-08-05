@@ -139,3 +139,55 @@ def get_title_font_size(title_display):
         return 42
 
     return 40
+
+def build_quote_display(text):
+    """
+    Prepara una cita para mostrarse en el widget.
+
+    Reglas:
+    - Añade comillas automáticamente.
+    - Respeta saltos de línea escritos manualmente.
+    - Si no hay saltos, devuelve el texto limpio.
+      (Más adelante añadiremos el algoritmo de partición.)
+    """
+
+    text = text.strip()
+
+    if not text:
+        return ""
+
+    if "\n" in text:
+        return f"“{text}”"
+
+    return f"“{text}”"
+
+
+def get_quote_font_size(text):
+    """
+    Calcula un tamaño recomendado para la cita
+    según su longitud visual.
+    """
+
+    width = visual_width(text)
+
+    if width <= 45:
+        return 20
+
+    if width <= 60:
+        return 19
+
+    if width <= 75:
+        return 18
+
+    if width <= 90:
+        return 17
+
+    return 16
+
+
+def build_page_display(page):
+    """
+    Formato corto para la página de la cita.
+    """
+
+    return f"Pág. {page}"
