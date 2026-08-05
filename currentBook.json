@@ -16,11 +16,14 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T06:22:55.836875+00:00",
+    "updatedAt": "2026-08-05T06:27:01.742403+00:00",
     "quote": {
-        "id": "3a025802-a031-80af-89c0-f59539bf44a5",
-        "text": "Y es un gran alivio sentir que eres libre, que no tienes una misión ",
-        "page": 328,
+        "id": "3a025802-a031-800f-8444-cff9da937801",
+        "text": "Ese es el motivo por el cual el hombre no puede ser feliz, porque la felicidad es el deseo de repetir ",
+        "display": "“Ese es el motivo por el cual el hombre no puede ser feliz, porque la felicidad es el deseo de repetir”",
+        "fontSize": 17,
+        "page": 313,
+        "pageDisplay": "Pág. 313",
         "favorite": true,
         "favoriteIcon": "♥"
     },
