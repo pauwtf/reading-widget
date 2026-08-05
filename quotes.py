@@ -5,6 +5,12 @@ import os
 
 from notion import HEADERS, QUOTES_DATABASE_URL
 
+from display import (
+    build_quote_display,
+    get_quote_font_size,
+    build_page_display,
+)
+
 
 HISTORY_FILE = "quote_history.json"
 
@@ -31,6 +37,7 @@ def get_quotes_for_book(book_id):
     return response.json()["results"]
 
 
+
 def get_text(prop):
 
     title = prop["title"]
@@ -44,14 +51,21 @@ def get_text(prop):
     )
 
 
+
 def get_number(prop):
 
-    return prop["number"] if prop["number"] is not None else 0
+    return (
+        prop["number"]
+        if prop["number"] is not None
+        else 0
+    )
+
 
 
 def get_checkbox(prop):
 
     return prop["checkbox"]
+
 
 
 def get_quote_stats(quotes):
@@ -71,6 +85,7 @@ def get_quote_stats(quotes):
         "total": total,
         "favorites": favorites
     }
+
 
 
 # -------------------------
@@ -95,13 +110,11 @@ def load_history():
         history = json.load(f)
 
 
-    # Crear estructura nueva si no existe
     if "books" not in history:
 
         history["books"] = {}
 
 
-    # Eliminar memoria antigua global
     if "shown" in history:
 
         del history["shown"]
@@ -143,7 +156,6 @@ def choose_quote(quotes, book_title):
 
     history = load_history()
 
-
     shown = get_book_history(
         history,
         book_title
@@ -156,8 +168,6 @@ def choose_quote(quotes, book_title):
     ]
 
 
-    # Si ya mostramos todas las frases
-    # de este libro, reiniciamos
     if not available_quotes:
 
         shown.clear()
@@ -172,7 +182,7 @@ def choose_quote(quotes, book_title):
     ]
 
 
-    # 70% favoritas ❤️
+
     if favorites and random.random() < 0.7:
 
         selected = random.choice(favorites)
@@ -209,9 +219,40 @@ def get_random_quote(quotes, book_title):
     properties = quote["properties"]
 
 
+    text = get_text(
+        properties["Frase"]
+    )
+
+    page = get_number(
+        properties["Página"]
+    )
+
+
+    quote_display = build_quote_display(
+        text
+    )
+
+
     return {
+
         "id": quote["id"],
-        "text": get_text(properties["Frase"]),
-        "page": get_number(properties["Página"]),
-        "favorite": get_checkbox(properties["  "])
+
+        "text": text,
+
+        "display": quote_display,
+
+        "fontSize": get_quote_font_size(
+            quote_display
+        ),
+
+        "page": page,
+
+        "pageDisplay": build_page_display(
+            page
+        ),
+
+        "favorite": get_checkbox(
+            properties["  "]
+        )
+
     }
