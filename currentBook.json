@@ -1,34 +1,36 @@
 {
-    "bookId": "3a325802-a031-8076-a4b8-c655f1eb7872",
-    "title": "Seda",
-    "titleDisplay": "Seda",
-    "author": "Alessandro Baricco",
-    "genre": "Drama",
-    "cover": "https://covers.openlibrary.org/b/id/15242056-L.jpg",
-    "currentPage": 0,
-    "totalPages": 0,
-    "progress": 0,
-    "progressValue": 0.0,
+    "bookId": "3b125802-a031-8065-b9f0-f8f986ce04aa",
+    "title": "Nos Acompañan Los Muertos",
+    "titleDisplay": "Nos Acompañan\nLos Muertos",
+    "author": "Rafael Perez Gay",
+    "displayAuthor": "— Rafael Perez Gay",
+    "debug": "VERSION 1.2",
+    "genre": "",
+    "cover": "https://images.cdn3.buscalibre.com/fit-in/360x360/63/30/6330e8285c3c2898443ae5928d8587e9.jpg",
+    "currentPage": 29,
+    "totalPages": 194,
+    "progress": 15,
+    "progressValue": 0.15,
     "display": {
         "titleFontSize": 50,
-        "pageText": "Página 0 de 0",
-        "progressText": "0%",
-        "progressBar": "░░░░░░░░░░",
+        "pageText": "Página 29 de 194",
+        "progressText": "15%",
+        "progressBar": "██░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-08-05T15:35:09.995234+00:00",
+    "updatedAt": "2026-08-05T16:32:19.838849+00:00",
     "quote": {
-        "id": "39c25802-a031-8056-9b4a-c37be976420a",
-        "text": "… dibujado en el agua, le parecía ver el inexplicable espectáculo, leve; que había sido su vida",
-        "display": "“… dibujado en el agua, le parecía\nver el inexplicable espectáculo,\nleve; que había sido su vida”",
-        "fontSize": 17,
-        "page": 112,
-        "pageDisplay": "Pág. 112",
+        "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
+        "text": "Viajar es conocer idiotas que hablan otras lenguas",
+        "display": "“Viajar es conocer idiotas que\nhablan otras lenguas”",
+        "fontSize": 19,
+        "page": 13,
+        "pageDisplay": "Pág. 13",
         "favorite": true,
         "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 2,
-        "favorites": 2
+        "total": 1,
+        "favorites": 1
     }
 }
