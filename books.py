@@ -4,8 +4,8 @@ from display import (
     build_title_display,
     get_title_font_size,
     build_author_display,
+    build_display_text,
 )
-
 
 def get_title(prop):
 
