@@ -237,3 +237,15 @@ def build_page_display(page):
     """
 
     return f"Pág. {page}"
+
+def build_author_display(author):
+    """
+    Devuelve el nombre del autor con formato editorial.
+    """
+
+    author = author.strip()
+
+    if not author:
+        return ""
+
+    return f"— {author}"
