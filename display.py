@@ -238,6 +238,29 @@ def build_page_display(page):
 
     return f"Pág. {page}"
 
+def build_display_text(
+    text,
+    prefix="",
+    suffix=""
+):
+    """
+    Devuelve un texto listo para mostrar.
+
+    Si está vacío,
+    devuelve una cadena vacía.
+    """
+
+    text = text.strip()
+
+    if not text:
+        return ""
+
+    return (
+        prefix
+        + text
+        + suffix
+    )
+
 def build_author_display(author):
     """
     Devuelve el nombre del autor con formato editorial.
