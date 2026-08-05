@@ -262,13 +262,8 @@ def build_display_text(
     )
 
 def build_author_display(author):
-    """
-    Devuelve el nombre del autor con formato editorial.
-    """
 
-    author = author.strip()
-
-    if not author:
-        return ""
-
-    return f"— {author}"
+    return build_display_text(
+        author,
+        prefix="— "
+    )
