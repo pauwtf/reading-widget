@@ -43,8 +43,10 @@ def visual_width(text):
 
 def build_title_display(title):
     """
-    Divide un título en dos líneas buscando el punto
-    más equilibrado visualmente.
+    Divide un título en dos líneas utilizando reglas editoriales.
+
+    En lugar de buscar el centro matemático, evalúa todos los
+    los posibles saltos y elige el que mejor se vea.
     """
 
     words = title.split()
@@ -52,21 +54,79 @@ def build_title_display(title):
     if len(words) <= 2:
         return title
 
+    weak_words = {
+        "de", "del", "la", "las",
+        "el", "los",
+        "y", "e", "o", "u",
+        "a", "en", "con", "por"
+    }
+
+    best_score = float("-inf")
     best_index = 1
-    best_difference = float("inf")
 
     for i in range(1, len(words)):
 
-        left = " ".join(words[:i])
-        right = " ".join(words[i:])
+        left_words = words[:i]
+        right_words = words[i:]
 
-        difference = abs(
-            visual_width(left)
-            - visual_width(right)
-        )
+        left = " ".join(left_words)
+        right = " ".join(right_words)
 
-        if difference < best_difference:
-            best_difference = difference
+        left_width = visual_width(left)
+        right_width = visual_width(right)
+
+        score = 0
+
+        # ----------------------------------
+        # 1. Queremos líneas equilibradas
+        # ----------------------------------
+        score -= abs(left_width - right_width) * 3
+
+        # ----------------------------------
+        # 2. Preferimos que la primera línea
+        # sea ligeramente más larga.
+        # ----------------------------------
+        if left_width >= right_width:
+            score += 12
+
+        # ----------------------------------
+        # 3. Evitar una palabra sola arriba.
+        # ----------------------------------
+        if len(left_words) == 1:
+            score -= 100
+
+        # ----------------------------------
+        # 4. Evitar una palabra sola abajo.
+        # ----------------------------------
+        if len(right_words) == 1:
+            score -= 100
+
+        # ----------------------------------
+        # 5. Evitar dejar artículos solos
+        # al final de la primera línea.
+        # ----------------------------------
+        if left_words[-1].lower() in weak_words:
+            score -= 60
+
+        # ----------------------------------
+        # 6. Evitar empezar la segunda línea
+        # con artículos.
+        # ----------------------------------
+        if right_words[0].lower() in weak_words:
+            score -= 20
+
+        # ----------------------------------
+        # 7. Bonus si ambas líneas tienen
+        # al menos dos palabras.
+        # ----------------------------------
+        if len(left_words) >= 2:
+            score += 10
+
+        if len(right_words) >= 2:
+            score += 10
+
+        if score > best_score:
+            best_score = score
             best_index = i
 
     return (
@@ -77,23 +137,19 @@ def build_title_display(title):
 
 
 def get_title_font_size(title):
-    """
-    Recomienda un tamaño de fuente según
-    la longitud visual del título.
-    """
 
     width = visual_width(title)
 
-    if width <= 15:
+    if width <= 14:
         return 50
 
-    if width <= 24:
+    if width <= 22:
         return 47
 
-    if width <= 34:
+    if width <= 30:
         return 44
 
-    if width <= 42:
+    if width <= 38:
         return 42
 
     return 40
