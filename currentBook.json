@@ -10,16 +10,17 @@
     "progress": 100,
     "progressValue": 1.0,
     "display": {
+        "titleFontSize": 44,
         "pageText": "Página 329 de 329",
         "progressText": "100%",
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T04:31:04.385084+00:00",
+    "updatedAt": "2026-08-05T04:57:55.344512+00:00",
     "quote": {
-        "id": "31225802-a031-80b4-bc2a-c1380f758a35",
-        "text": "El campo de concentración es un mundo en el que las personas viven permanentemente juntas, de día y de noche. La crueldad y la violencia no son más que rasgos secundarios (y no imprescindibles)",
-        "page": 147,
+        "id": "30b25802-a031-8030-b053-cc03f28c429b",
+        "text": "Pero es precisamente el débil quien tiene que ser fuerte y saber marcharse cuando el fuerte es demasiado débil para ser capaz de hacerle daño al débil",
+        "page": 83,
         "favorite": true,
         "favoriteIcon": "♥"
     },
