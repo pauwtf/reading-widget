@@ -7,6 +7,7 @@ from display import (
     build_display_text,
 )
 
+
 def get_title(prop):
 
     if not prop["title"]:
@@ -102,6 +103,10 @@ def build_current_book(book, book_id):
         book["Autor Nombre"]
     )
 
+    genre = get_formula_text(
+        book["Genero Nombre"]
+    )
+
     current_page = get_number(
         book["Página Actual"]
     )
@@ -127,9 +132,10 @@ def build_current_book(book, book_id):
         "displayAuthor":
             build_author_display(author),
 
-        "genre": get_formula_text(
-            book["Genero Nombre"]
-        ),
+        "genre": genre,
+
+        "displayGenre":
+            build_display_text(genre),
 
         "cover": get_cover(
             book["Portada"]
