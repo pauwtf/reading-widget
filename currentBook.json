@@ -10,19 +10,19 @@
     "progress": 100,
     "progressValue": 1.0,
     "display": {
-        "titleFontSize": 44,
+        "titleFontSize": 20,
         "pageText": "Página 329 de 329",
         "progressText": "100%",
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T05:16:15.840877+00:00",
+    "updatedAt": "2026-08-05T05:22:18.714276+00:00",
     "quote": {
-        "id": "3a025802-a031-8000-88a4-c10a6116741f",
-        "text": "Lo que hace del hombre de izquierda un hombre de izquierda no es tal o cual teoría, sino su capacidad de convertir cualquier teoría en parte del kitsch llamado Gran Narcha hacia delante",
-        "page": 271,
-        "favorite": false,
-        "favoriteIcon": ""
+        "id": "3a025802-a031-80dd-8743-e7a2faaaceee",
+        "text": "No estaban felices a pesar de la tristeza, sino gracias a la tristeza.",
+        "page": 308,
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
         "total": 21,
