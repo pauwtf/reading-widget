@@ -1,5 +1,10 @@
 from datetime import datetime, timezone
 
+from display import (
+    build_title_display,
+    get_title_font_size,
+)
+
 
 def get_title(prop):
 
@@ -9,29 +14,6 @@ def get_title(prop):
     return "".join(
         item["plain_text"]
         for item in prop["title"]
-    )
-
-
-def format_title(title):
-
-    words = title.split()
-
-    if len(words) <= 2:
-        return title
-
-    if len(words) == 3:
-        return (
-            words[0]
-            + "\n"
-            + " ".join(words[1:])
-        )
-
-    middle = len(words) // 2
-
-    return (
-        " ".join(words[:middle])
-        + "\n"
-        + " ".join(words[middle:])
     )
 
 
@@ -129,7 +111,7 @@ def build_current_book(book, book_id):
 
         "title": title,
 
-        "titleDisplay": format_title(title),
+        "titleDisplay": build_title_display(title),
 
         "author": get_formula_text(
             book["Autor Nombre"]
@@ -152,6 +134,9 @@ def build_current_book(book, book_id):
         "progressValue": round(progress / 100, 2),
 
         "display": {
+
+            "titleFontSize":
+                get_title_font_size(title),
 
             "pageText":
                 f"Página {current_page} de {total_pages}",
