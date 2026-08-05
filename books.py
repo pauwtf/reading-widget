@@ -126,8 +126,6 @@ def build_current_book(book, book_id):
 
         "displayAuthor":
             build_author_display(author),
-						"debug":
- 							   "VERSION 1.2",
 
         "genre": get_formula_text(
             book["Genero Nombre"]
