@@ -14,16 +14,16 @@ titles = [
     "El amor en los tiempos del cólera",
 ]
 
+print("\n========== SANDBOX ==========\n")
+
 for title in titles:
 
-    display = build_title_display(title)
+    title_display = build_title_display(title)
+    font_size = get_title_font_size(title_display)
 
-    size = get_title_font_size(display)
+    print(f"Título: {title}")
+    print(f"Display:\n{title_display}")
+    print(f"Font Size: {font_size}")
+    print("-" * 40)
 
-    print("--------------------------------")
-
-    print(title)
-
-    print(display)
-
-    print(size)
+print("\n=============================\n")
