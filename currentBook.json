@@ -1,34 +1,34 @@
 {
-    "bookId": "2fe25802-a031-800a-bbc3-ce1bd655c0b3",
-    "title": "La Insoportable Levedad Del Ser",
-    "titleDisplay": "La Insoportable Levedad\nDel Ser",
-    "author": "Milan Kundera",
-    "genre": "Filosófico",
-    "cover": "https://covers.openlibrary.org/b/id/13589206-L.jpg",
-    "currentPage": 329,
-    "totalPages": 329,
-    "progress": 100,
-    "progressValue": 1.0,
+    "bookId": "3a325802-a031-8076-a4b8-c655f1eb7872",
+    "title": "Seda",
+    "titleDisplay": "Seda",
+    "author": "Alessandro Baricco",
+    "genre": "Drama",
+    "cover": "https://covers.openlibrary.org/b/id/15242056-L.jpg",
+    "currentPage": 0,
+    "totalPages": 0,
+    "progress": 0,
+    "progressValue": 0.0,
     "display": {
-        "titleFontSize": 44,
-        "pageText": "Página 329 de 329",
-        "progressText": "100%",
-        "progressBar": "██████████",
-        "status": "Terminado"
+        "titleFontSize": 50,
+        "pageText": "Página 0 de 0",
+        "progressText": "0%",
+        "progressBar": "░░░░░░░░░░",
+        "status": "Leyendo"
     },
-    "updatedAt": "2026-08-05T15:07:33.266649+00:00",
+    "updatedAt": "2026-08-05T15:35:09.995234+00:00",
     "quote": {
-        "id": "3a025802-a031-8028-aef6-f0d517553dfd",
-        "text": "Delante hay una mentira comprensible y tras ella reluce una verdad incomprensible ",
-        "display": "“Delante hay una mentira\ncomprensible y tras ella reluce\nuna verdad incomprensible”",
+        "id": "39c25802-a031-8056-9b4a-c37be976420a",
+        "text": "… dibujado en el agua, le parecía ver el inexplicable espectáculo, leve; que había sido su vida",
+        "display": "“… dibujado en el agua, le parecía\nver el inexplicable espectáculo,\nleve; que había sido su vida”",
         "fontSize": 17,
-        "page": 268,
-        "pageDisplay": "Pág. 268",
-        "favorite": false,
-        "favoriteIcon": ""
+        "page": 112,
+        "pageDisplay": "Pág. 112",
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 21,
-        "favorites": 15
+        "total": 2,
+        "favorites": 2
     }
 }
