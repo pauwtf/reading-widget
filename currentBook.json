@@ -10,17 +10,17 @@
     "progress": 100,
     "progressValue": 1.0,
     "display": {
-        "titleFontSize": 20,
+        "titleFontSize": 44,
         "pageText": "Página 329 de 329",
         "progressText": "100%",
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T05:22:18.714276+00:00",
+    "updatedAt": "2026-08-05T05:24:42.747624+00:00",
     "quote": {
-        "id": "3a025802-a031-80dd-8743-e7a2faaaceee",
-        "text": "No estaban felices a pesar de la tristeza, sino gracias a la tristeza.",
-        "page": 308,
+        "id": "3a025802-a031-8042-841e-e8b654b148c0",
+        "text": "Es posible que no seamos capaces de amar precisamente porque deseamos ser amados",
+        "page": 312,
         "favorite": true,
         "favoriteIcon": "♥"
     },
