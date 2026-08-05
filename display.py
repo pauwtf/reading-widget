@@ -45,10 +45,12 @@ def build_title_display(title):
     """
     Divide un título en dos líneas utilizando reglas editoriales.
 
-    Prioridades:
-    1. Nunca dejar una sola palabra abajo.
-    2. Aprovechar al máximo la primera línea.
-    3. Mantener un buen equilibrio visual.
+    Reglas:
+    - Nunca dejar una sola palabra arriba.
+    - Nunca dejar una sola palabra abajo.
+    - Aprovechar al máximo la primera línea.
+    - No superar el ancho máximo.
+    - Si hay empate, elegir el corte más equilibrado.
     """
 
     words = title.split()
@@ -58,7 +60,7 @@ def build_title_display(title):
 
     MAX_TITLE_WIDTH = 24
 
-    best_index = 1
+    best_index = None
     best_width = -1
     best_balance = float("inf")
 
@@ -67,7 +69,11 @@ def build_title_display(title):
         left_words = words[:i]
         right_words = words[i:]
 
-        # Nunca dejar una palabra sola abajo
+        # Nunca dejar una sola palabra arriba
+        if len(left_words) < 2:
+            continue
+
+        # Nunca dejar una sola palabra abajo
         if len(right_words) < 2:
             continue
 
@@ -75,18 +81,16 @@ def build_title_display(title):
         right = " ".join(right_words)
 
         left_width = visual_width(left)
+        right_width = visual_width(right)
 
-        # Si no cabe, descartamos
+        # La primera línea no puede exceder el ancho máximo
         if left_width > MAX_TITLE_WIDTH:
             continue
 
-        balance = abs(
-            left_width -
-            visual_width(right)
-        )
+        balance = abs(left_width - right_width)
 
         # Preferimos la primera línea más larga.
-        # Si hay empate, la más equilibrada.
+        # Si empatan, la más equilibrada.
         if (
             left_width > best_width
             or (
@@ -98,12 +102,16 @@ def build_title_display(title):
             best_balance = balance
             best_index = i
 
+    # Si ninguna opción cumplió las reglas,
+    # usamos un corte central como respaldo.
+    if best_index is None:
+        best_index = len(words) // 2
+
     return (
         " ".join(words[:best_index])
         + "\n"
         + " ".join(words[best_index:])
     )
-
 
 def get_title_font_size(title_display):
     """
