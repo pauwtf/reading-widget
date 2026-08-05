@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from display import (
     build_title_display,
     get_title_font_size,
+    build_author_display,
 )
 
 
@@ -71,14 +72,12 @@ def get_cover(prop):
     return ""
 
 
-
 def create_progress_bar(progress, length=10):
 
     filled = round(progress / 100 * length)
     empty = length - filled
 
     return "█" * filled + "░" * empty
-
 
 
 def get_status(progress):
@@ -89,7 +88,6 @@ def get_status(progress):
     return "Leyendo"
 
 
-
 def build_current_book(book, book_id):
 
     title = get_title(
@@ -98,6 +96,10 @@ def build_current_book(book, book_id):
 
     title_display = build_title_display(
         title
+    )
+
+    author = get_formula_text(
+        book["Autor Nombre"]
     )
 
     current_page = get_number(
@@ -120,9 +122,10 @@ def build_current_book(book, book_id):
 
         "titleDisplay": title_display,
 
-        "author": get_formula_text(
-            book["Autor Nombre"]
-        ),
+        "author": author,
+
+        "displayAuthor":
+            build_author_display(author),
 
         "genre": get_formula_text(
             book["Genero Nombre"]
