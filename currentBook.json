@@ -1,30 +1,30 @@
 {
-    "bookId": "3b125802-a031-8065-b9f0-f8f986ce04aa",
-    "title": "Nos Acompañan Los Muertos",
-    "titleDisplay": "Nos Acompañan\nLos Muertos",
-    "author": "Rafael Perez Gay",
-    "genre": "",
-    "cover": "https://images.cdn3.buscalibre.com/fit-in/360x360/63/30/6330e8285c3c2898443ae5928d8587e9.jpg",
-    "currentPage": 29,
-    "totalPages": 194,
-    "progress": 15,
-    "progressValue": 0.15,
+    "bookId": "2fe25802-a031-800a-bbc3-ce1bd655c0b3",
+    "title": "La Insoportable Levedad Del Ser",
+    "titleDisplay": "La Insoportable\nLevedad Del Ser",
+    "author": "Milan Kundera",
+    "genre": "Filosófico",
+    "cover": "https://covers.openlibrary.org/b/id/13589206-L.jpg",
+    "currentPage": 329,
+    "totalPages": 329,
+    "progress": 100,
+    "progressValue": 1.0,
     "display": {
-        "pageText": "Página 29 de 194",
-        "progressText": "15%",
-        "progressBar": "██░░░░░░░░",
-        "status": "Leyendo"
+        "pageText": "Página 329 de 329",
+        "progressText": "100%",
+        "progressBar": "██████████",
+        "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T01:09:56.148705+00:00",
+    "updatedAt": "2026-08-05T03:47:41.252698+00:00",
     "quote": {
-        "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
-        "text": "Viajar es conocer idiotas que hablan otras lenguas",
-        "page": 13,
+        "id": "31925802-a031-8023-a868-f0a72a685c48",
+        "text": "La mierda es un problema teológico más complejo que el mal",
+        "page": 260,
         "favorite": true,
         "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 1,
-        "favorites": 1
+        "total": 21,
+        "favorites": 15
     }
 }
