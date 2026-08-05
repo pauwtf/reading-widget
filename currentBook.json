@@ -16,16 +16,16 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T10:11:03.526696+00:00",
+    "updatedAt": "2026-08-05T12:19:05.793431+00:00",
     "quote": {
-        "id": "3a025802-a031-808b-9f11-c9687ecaf2d3",
-        "text": "… y que mientras riera seguiría teniendo un motivo para vivir, aunque estuviera condenado a muerte ",
-        "display": "“… y que mientras riera seguiría teniendo un motivo para vivir, aunque estuviera condenado a muerte”",
+        "id": "3a025802-a031-8010-8d83-d0e691aa3d30",
+        "text": "… muerto, pertenece a su legítima esposa, más de lo que hasta entonces le había perteneció nunca. ",
+        "display": "“… muerto, pertenece a su legítima esposa, más de lo que hasta entonces le había perteneció nunca.”",
         "fontSize": 17,
-        "page": 307,
-        "pageDisplay": "Pág. 307",
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "page": 289,
+        "pageDisplay": "Pág. 289",
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
         "total": 21,
