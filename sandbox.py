@@ -5,13 +5,20 @@ from display import (
 
 titles = [
     "Holly",
-    "Nos Acompañan Los Muertos",
+    "Dune",
+    "It",
+    "Carrie",
+    "Misery",
     "La Insoportable Levedad Del Ser",
+    "Nos Acompañan Los Muertos",
     "Cien años de soledad",
     "Crónica de una muerte anunciada",
+    "El amor en los tiempos del cólera",
     "El problema de los tres cuerpos",
     "Los detectives salvajes",
-    "El amor en los tiempos del cólera",
+    "La sombra del viento",
+    "El nombre de la rosa",
+    "El retrato de Dorian Gray",
 ]
 
 print("\n========== SANDBOX ==========\n")
