@@ -71,12 +71,14 @@ def get_cover(prop):
     return ""
 
 
+
 def create_progress_bar(progress, length=10):
 
     filled = round(progress / 100 * length)
     empty = length - filled
 
     return "█" * filled + "░" * empty
+
 
 
 def get_status(progress):
@@ -87,10 +89,15 @@ def get_status(progress):
     return "Leyendo"
 
 
+
 def build_current_book(book, book_id):
 
     title = get_title(
         book["Titulo"]
+    )
+
+    title_display = build_title_display(
+        title
     )
 
     current_page = get_number(
@@ -111,7 +118,7 @@ def build_current_book(book, book_id):
 
         "title": title,
 
-        "titleDisplay": build_title_display(title),
+        "titleDisplay": title_display,
 
         "author": get_formula_text(
             book["Autor Nombre"]
@@ -136,7 +143,9 @@ def build_current_book(book, book_id):
         "display": {
 
             "titleFontSize":
-                get_title_font_size(title),
+                get_title_font_size(
+                    title_display
+                ),
 
             "pageText":
                 f"Página {current_page} de {total_pages}",
