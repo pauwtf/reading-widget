@@ -142,13 +142,13 @@ def get_title_font_size(title_display):
 
 def build_quote_display(text):
     """
-    Prepara una cita para mostrarse en el widget.
+    Organiza una cita en un máximo de 4 líneas.
 
     Reglas:
     - Añade comillas automáticamente.
-    - Respeta saltos de línea escritos manualmente.
-    - Si no hay saltos, devuelve el texto limpio.
-      (Más adelante añadiremos el algoritmo de partición.)
+    - Usa el ancho disponible antes de crear una nueva línea.
+    - Nunca corta palabras.
+    - Intenta equilibrar las líneas.
     """
 
     text = text.strip()
@@ -156,30 +156,76 @@ def build_quote_display(text):
     if not text:
         return ""
 
-    if "\n" in text:
-        return f"“{text}”"
+    words = text.split()
 
-    return f"“{text}”"
+    MAX_WIDTH = 30
+
+    lines = []
+    current = []
+
+    for word in words:
+
+        candidate = " ".join(current + [word])
+
+        if (
+            visual_width(candidate) <= MAX_WIDTH
+            or not current
+        ):
+
+            current.append(word)
+
+        else:
+
+            lines.append(" ".join(current))
+            current = [word]
+
+    if current:
+        lines.append(" ".join(current))
+
+    # Si quedaron más de 4 líneas,
+    # unimos las últimas.
+    while len(lines) > 4:
+
+        lines[-2] += " " + lines[-1]
+        lines.pop()
+
+    if lines:
+        lines[0] = "“" + lines[0]
+        lines[-1] = lines[-1] + "”"
+
+    return "\n".join(lines)
 
 
 def get_quote_font_size(text):
     """
-    Calcula un tamaño recomendado para la cita
-    según su longitud visual.
+    Calcula el tamaño recomendado según
+    el número de líneas y el ancho visual.
     """
 
-    width = visual_width(text)
+    lines = text.split("\n")
 
-    if width <= 45:
-        return 20
+    longest = max(
+        visual_width(line)
+        for line in lines
+    )
 
-    if width <= 60:
-        return 19
+    count = len(lines)
 
-    if width <= 75:
+    if count <= 2:
+
+        if longest <= 22:
+            return 20
+
+        if longest <= 28:
+            return 19
+
         return 18
 
-    if width <= 90:
+    if count == 3:
+
+        if longest <= 26:
+            return 18
+
         return 17
 
     return 16
