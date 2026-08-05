@@ -1,7 +1,7 @@
 {
     "bookId": "2fe25802-a031-800a-bbc3-ce1bd655c0b3",
     "title": "La Insoportable Levedad Del Ser",
-    "titleDisplay": "La Insoportable Levedad Del\nSer",
+    "titleDisplay": "La Insoportable Levedad\nDel Ser",
     "author": "Milan Kundera",
     "genre": "Filosófico",
     "cover": "https://covers.openlibrary.org/b/id/13589206-L.jpg",
@@ -16,13 +16,13 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T05:13:19.961210+00:00",
+    "updatedAt": "2026-08-05T05:16:15.840877+00:00",
     "quote": {
-        "id": "31125802-a031-80f7-afcd-c4a6e29f102f",
-        "text": "Porque amar significa renunciar a la fuerza",
-        "page": 121,
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "id": "3a025802-a031-8000-88a4-c10a6116741f",
+        "text": "Lo que hace del hombre de izquierda un hombre de izquierda no es tal o cual teoría, sino su capacidad de convertir cualquier teoría en parte del kitsch llamado Gran Narcha hacia delante",
+        "page": 271,
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
         "total": 21,
