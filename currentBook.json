@@ -1,7 +1,7 @@
 {
     "bookId": "2fe25802-a031-800a-bbc3-ce1bd655c0b3",
     "title": "La Insoportable Levedad Del Ser",
-    "titleDisplay": "La Insoportable\nLevedad Del Ser",
+    "titleDisplay": "La Insoportable Levedad Del\nSer",
     "author": "Milan Kundera",
     "genre": "Filosófico",
     "cover": "https://covers.openlibrary.org/b/id/13589206-L.jpg",
@@ -16,11 +16,11 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T05:08:14.968675+00:00",
+    "updatedAt": "2026-08-05T05:13:19.961210+00:00",
     "quote": {
-        "id": "3a025802-a031-801b-8a7f-cdda8eaf23fd",
-        "text": "¡Vino para darse cuenta de que la realidad es más que un sueño, mucho más que un sueño!",
-        "page": 288,
+        "id": "31125802-a031-80f7-afcd-c4a6e29f102f",
+        "text": "Porque amar significa renunciar a la fuerza",
+        "page": 121,
         "favorite": true,
         "favoriteIcon": "♥"
     },
