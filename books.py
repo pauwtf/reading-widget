@@ -1,11 +1,6 @@
 from datetime import datetime, timezone
 
-from display import (
-    build_title_display,
-    get_title_font_size,
-    build_author_display,
-    build_display_text,
-)
+from presentation import build_book_display
 
 
 def get_title(prop):
@@ -95,16 +90,18 @@ def build_current_book(book, book_id):
         book["Titulo"]
     )
 
-    title_display = build_title_display(
-        title
-    )
-
     author = get_formula_text(
         book["Autor Nombre"]
     )
 
     genre = get_formula_text(
         book["Genero Nombre"]
+    )
+
+    presentation = build_book_display(
+        title,
+        author,
+        genre,
     )
 
     current_page = get_number(
@@ -125,17 +122,18 @@ def build_current_book(book, book_id):
 
         "title": title,
 
-        "titleDisplay": title_display,
+        "titleDisplay":
+            presentation["titleDisplay"],
 
         "author": author,
 
         "displayAuthor":
-            build_author_display(author),
+            presentation["displayAuthor"],
 
         "genre": genre,
 
         "displayGenre":
-            build_display_text(genre),
+            presentation["displayGenre"],
 
         "cover": get_cover(
             book["Portada"]
@@ -152,9 +150,7 @@ def build_current_book(book, book_id):
         "display": {
 
             "titleFontSize":
-                get_title_font_size(
-                    title_display
-                ),
+                presentation["titleFontSize"],
 
             "pageText":
                 f"Página {current_page} de {total_pages}",
