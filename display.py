@@ -43,10 +43,12 @@ def visual_width(text):
 
 def build_title_display(title):
     """
-    Divide un título utilizando un ancho máximo visual.
+    Divide un título en dos líneas utilizando reglas editoriales.
 
-    Busca la primera línea más larga posible sin superar
-    el ancho permitido.
+    Prioridades:
+    1. Nunca dejar una sola palabra abajo.
+    2. Aprovechar al máximo la primera línea.
+    3. Mantener un buen equilibrio visual.
     """
 
     words = title.split()
@@ -57,15 +59,43 @@ def build_title_display(title):
     MAX_TITLE_WIDTH = 24
 
     best_index = 1
-    best_width = 0
+    best_width = -1
+    best_balance = float("inf")
 
     for i in range(1, len(words)):
 
-        left = " ".join(words[:i])
-        width = visual_width(left)
+        left_words = words[:i]
+        right_words = words[i:]
 
-        if width <= MAX_TITLE_WIDTH and width > best_width:
-            best_width = width
+        # Nunca dejar una palabra sola abajo
+        if len(right_words) < 2:
+            continue
+
+        left = " ".join(left_words)
+        right = " ".join(right_words)
+
+        left_width = visual_width(left)
+
+        # Si no cabe, descartamos
+        if left_width > MAX_TITLE_WIDTH:
+            continue
+
+        balance = abs(
+            left_width -
+            visual_width(right)
+        )
+
+        # Preferimos la primera línea más larga.
+        # Si hay empate, la más equilibrada.
+        if (
+            left_width > best_width
+            or (
+                left_width == best_width
+                and balance < best_balance
+            )
+        ):
+            best_width = left_width
+            best_balance = balance
             best_index = i
 
     return (
