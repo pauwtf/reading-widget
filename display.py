@@ -105,20 +105,29 @@ def build_title_display(title):
     )
 
 
-def get_title_font_size(title):
+def get_title_font_size(title_display):
+    """
+    Calcula el tamaño recomendado según la línea
+    más larga del título ya dividido.
+    """
 
-    width = visual_width(title)
+    lines = title_display.split("\n")
 
-    if width <= 14:
+    longest_line = max(
+        visual_width(line)
+        for line in lines
+    )
+
+    if longest_line <= 14:
         return 50
 
-    if width <= 22:
+    if longest_line <= 20:
         return 47
 
-    if width <= 30:
+    if longest_line <= 23:
         return 44
 
-    if width <= 38:
+    if longest_line <= 26:
         return 42
 
     return 40
