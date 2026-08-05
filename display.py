@@ -43,10 +43,10 @@ def visual_width(text):
 
 def build_title_display(title):
     """
-    Divide un título en dos líneas utilizando reglas editoriales.
+    Divide un título utilizando un ancho máximo visual.
 
-    En lugar de buscar el centro matemático, evalúa todos los
-    los posibles saltos y elige el que mejor se vea.
+    Busca la primera línea más larga posible sin superar
+    el ancho permitido.
     """
 
     words = title.split()
@@ -54,79 +54,18 @@ def build_title_display(title):
     if len(words) <= 2:
         return title
 
-    weak_words = {
-        "de", "del", "la", "las",
-        "el", "los",
-        "y", "e", "o", "u",
-        "a", "en", "con", "por"
-    }
+    MAX_TITLE_WIDTH = 24
 
-    best_score = float("-inf")
     best_index = 1
+    best_width = 0
 
     for i in range(1, len(words)):
 
-        left_words = words[:i]
-        right_words = words[i:]
+        left = " ".join(words[:i])
+        width = visual_width(left)
 
-        left = " ".join(left_words)
-        right = " ".join(right_words)
-
-        left_width = visual_width(left)
-        right_width = visual_width(right)
-
-        score = 0
-
-        # ----------------------------------
-        # 1. Queremos líneas equilibradas
-        # ----------------------------------
-        score -= abs(left_width - right_width) * 3
-
-        # ----------------------------------
-        # 2. Preferimos que la primera línea
-        # sea ligeramente más larga.
-        # ----------------------------------
-        if left_width >= right_width:
-            score += 12
-
-        # ----------------------------------
-        # 3. Evitar una palabra sola arriba.
-        # ----------------------------------
-        if len(left_words) == 1:
-            score -= 100
-
-        # ----------------------------------
-        # 4. Evitar una palabra sola abajo.
-        # ----------------------------------
-        if len(right_words) == 1:
-            score -= 100
-
-        # ----------------------------------
-        # 5. Evitar dejar artículos solos
-        # al final de la primera línea.
-        # ----------------------------------
-        if left_words[-1].lower() in weak_words:
-            score -= 60
-
-        # ----------------------------------
-        # 6. Evitar empezar la segunda línea
-        # con artículos.
-        # ----------------------------------
-        if right_words[0].lower() in weak_words:
-            score -= 20
-
-        # ----------------------------------
-        # 7. Bonus si ambas líneas tienen
-        # al menos dos palabras.
-        # ----------------------------------
-        if len(left_words) >= 2:
-            score += 10
-
-        if len(right_words) >= 2:
-            score += 10
-
-        if score > best_score:
-            best_score = score
+        if width <= MAX_TITLE_WIDTH and width > best_width:
+            best_width = width
             best_index = i
 
     return (
