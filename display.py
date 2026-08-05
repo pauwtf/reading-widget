@@ -106,19 +106,4 @@ def build_title_display(title):
 
 
 def get_title_font_size(title):
-
-    width = visual_width(title)
-
-    if width <= 14:
-        return 50
-
-    if width <= 22:
-        return 47
-
-    if width <= 30:
-        return 44
-
-    if width <= 38:
-        return 42
-
-    return 40
+    return 20
