@@ -16,14 +16,14 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-08-05T14:57:33.693746+00:00",
+    "updatedAt": "2026-08-05T15:07:33.266649+00:00",
     "quote": {
-        "id": "3a025802-a031-8091-958d-e65027c165a3",
-        "text": "Cuando Dios expulsó al hombre del Paraíso, hizo que conociera el asco",
-        "display": "“Cuando Dios expulsó al hombre del Paraíso, hizo que conociera el asco”",
-        "fontSize": 18,
-        "page": 261,
-        "pageDisplay": "Pág. 261",
+        "id": "3a025802-a031-8028-aef6-f0d517553dfd",
+        "text": "Delante hay una mentira comprensible y tras ella reluce una verdad incomprensible ",
+        "display": "“Delante hay una mentira\ncomprensible y tras ella reluce\nuna verdad incomprensible”",
+        "fontSize": 17,
+        "page": 268,
+        "pageDisplay": "Pág. 268",
         "favorite": false,
         "favoriteIcon": ""
     },
