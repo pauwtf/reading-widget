@@ -9,11 +9,14 @@
     "cover": "https://images.cdn3.buscalibre.com/fit-in/360x360/63/30/6330e8285c3c2898443ae5928d8587e9.jpg",
     "currentPage": 29,
     "totalPages": 194,
-    "pagesRead": 29,
-    "pagesRemaining": 165,
     "progress": 15,
     "progressValue": 0.15,
-    "isFinished": false,
+    "reading": {
+        "pagesRead": 29,
+        "pagesRemaining": 165,
+        "percentagePerPage": 0.52,
+        "isFinished": false
+    },
     "display": {
         "titleFontSize": 50,
         "pageText": "Página 29 de 194",
@@ -21,7 +24,7 @@
         "progressBar": "██░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-08-06T04:06:17.946781+00:00",
+    "updatedAt": "2026-08-06T04:11:52.234036+00:00",
     "quote": {
         "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
         "text": "Viajar es conocer idiotas que hablan otras lenguas",
