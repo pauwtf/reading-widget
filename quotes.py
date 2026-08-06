@@ -5,10 +5,8 @@ import os
 
 from notion import HEADERS, QUOTES_DATABASE_URL
 
-from display import (
-    build_quote_display,
-    get_quote_font_size,
-    build_page_display,
+from presentation import (
+    build_quote_presentation,
 )
 
 
@@ -37,7 +35,6 @@ def get_quotes_for_book(book_id):
     return response.json()["results"]
 
 
-
 def get_text(prop):
 
     title = prop["title"]
@@ -51,7 +48,6 @@ def get_text(prop):
     )
 
 
-
 def get_number(prop):
 
     return (
@@ -61,11 +57,9 @@ def get_number(prop):
     )
 
 
-
 def get_checkbox(prop):
 
     return prop["checkbox"]
-
 
 
 def get_quote_stats(quotes):
@@ -87,7 +81,6 @@ def get_quote_stats(quotes):
     }
 
 
-
 # -------------------------
 # MEMORIA POR LIBRO
 # -------------------------
@@ -100,7 +93,6 @@ def load_history():
             "books": {}
         }
 
-
     with open(
         HISTORY_FILE,
         "r",
@@ -109,19 +101,15 @@ def load_history():
 
         history = json.load(f)
 
-
     if "books" not in history:
 
         history["books"] = {}
-
 
     if "shown" in history:
 
         del history["shown"]
 
-
     return history
-
 
 
 def save_history(history):
@@ -140,16 +128,13 @@ def save_history(history):
         )
 
 
-
 def get_book_history(history, book_title):
 
     if book_title not in history["books"]:
 
         history["books"][book_title] = []
 
-
     return history["books"][book_title]
-
 
 
 def choose_quote(quotes, book_title):
@@ -161,12 +146,10 @@ def choose_quote(quotes, book_title):
         book_title
     )
 
-
     available_quotes = [
         q for q in quotes
         if q["id"] not in shown
     ]
-
 
     if not available_quotes:
 
@@ -174,33 +157,32 @@ def choose_quote(quotes, book_title):
 
         available_quotes = quotes
 
-
-
     favorites = [
         q for q in available_quotes
-        if get_checkbox(q["properties"]["  "])
+        if get_checkbox(
+            q["properties"]["  "]
+        )
     ]
-
-
 
     if favorites and random.random() < 0.7:
 
-        selected = random.choice(favorites)
+        selected = random.choice(
+            favorites
+        )
 
     else:
 
-        selected = random.choice(available_quotes)
+        selected = random.choice(
+            available_quotes
+        )
 
-
-
-    shown.append(selected["id"])
-
+    shown.append(
+        selected["id"]
+    )
 
     save_history(history)
 
-
     return selected
-
 
 
 def get_random_quote(quotes, book_title):
@@ -209,15 +191,12 @@ def get_random_quote(quotes, book_title):
 
         return None
 
-
     quote = choose_quote(
         quotes,
         book_title
     )
 
-
     properties = quote["properties"]
-
 
     text = get_text(
         properties["Frase"]
@@ -227,11 +206,10 @@ def get_random_quote(quotes, book_title):
         properties["Página"]
     )
 
-
-    quote_display = build_quote_display(
-        text
+    presentation = build_quote_presentation(
+        text,
+        page,
     )
-
 
     return {
 
@@ -239,17 +217,16 @@ def get_random_quote(quotes, book_title):
 
         "text": text,
 
-        "display": quote_display,
+        "display":
+            presentation["display"],
 
-        "fontSize": get_quote_font_size(
-            quote_display
-        ),
+        "fontSize":
+            presentation["fontSize"],
 
         "page": page,
 
-        "pageDisplay": build_page_display(
-            page
-        ),
+        "pageDisplay":
+            presentation["pageDisplay"],
 
         "favorite": get_checkbox(
             properties["  "]
