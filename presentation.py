@@ -47,19 +47,24 @@ def build_book_display(
 
 
 def build_quote_presentation(
-    text,
-    page,
+    quote,
 ):
     """
-    Construye todos los campos de presentación
-    relacionados con una cita.
+    Construye toda la representación visual
+    de una cita.
     """
 
     quote_display = build_quote_display(
-        text
+        quote["text"]
     )
 
     return {
+
+        "id":
+            quote["id"],
+
+        "text":
+            quote["text"],
 
         "display":
             quote_display,
@@ -69,9 +74,20 @@ def build_quote_presentation(
                 quote_display
             ),
 
+        "page":
+            quote["page"],
+
         "pageDisplay":
             build_page_display(
-                page
-            )
+                quote["page"]
+            ),
+
+        "favorite":
+            quote["favorite"],
+
+        "favoriteIcon":
+            "♥"
+            if quote["favorite"]
+            else ""
 
     }
