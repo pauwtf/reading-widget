@@ -198,38 +198,24 @@ def get_random_quote(quotes, book_title):
 
     properties = quote["properties"]
 
-    text = get_text(
-        properties["Frase"]
-    )
-
-    page = get_number(
-        properties["Página"]
-    )
-
-    presentation = build_quote_presentation(
-        text,
-        page,
-    )
-
-    return {
+    raw_quote = {
 
         "id": quote["id"],
 
-        "text": text,
+        "text": get_text(
+            properties["Frase"]
+        ),
 
-        "display":
-            presentation["display"],
-
-        "fontSize":
-            presentation["fontSize"],
-
-        "page": page,
-
-        "pageDisplay":
-            presentation["pageDisplay"],
+        "page": get_number(
+            properties["Página"]
+        ),
 
         "favorite": get_checkbox(
             properties["  "]
         )
 
     }
+
+    return build_quote_presentation(
+        raw_quote
+    )
