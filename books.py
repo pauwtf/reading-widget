@@ -25,6 +25,17 @@ def get_formula_text(prop):
     return ""
 
 
+def get_formula_boolean(prop):
+
+    formula = prop["formula"]
+
+    if formula["type"] == "boolean":
+
+        return formula["boolean"]
+
+    return False
+
+
 def get_number(prop):
 
     return (
@@ -32,11 +43,6 @@ def get_number(prop):
         if prop["number"] is not None
         else 0
     )
-
-
-def get_checkbox(prop):
-
-    return prop["checkbox"]
 
 
 def get_progress(prop):
@@ -128,7 +134,7 @@ def build_current_book(book, book_id):
         0
     )
 
-    is_finished = get_checkbox(
+    is_finished = get_formula_boolean(
         book["Finalizado Check"]
     )
 
