@@ -34,6 +34,11 @@ def get_number(prop):
     )
 
 
+def get_checkbox(prop):
+
+    return prop["checkbox"]
+
+
 def get_progress(prop):
 
     formula = prop["formula"]
@@ -76,9 +81,9 @@ def create_progress_bar(progress, length=10):
     return "█" * filled + "░" * empty
 
 
-def get_status(progress):
+def get_status(is_finished):
 
-    if progress >= 100:
+    if is_finished:
         return "Terminado"
 
     return "Leyendo"
@@ -116,6 +121,17 @@ def build_current_book(book, book_id):
         book["Progreso"]
     )
 
+    pages_read = current_page
+
+    pages_remaining = max(
+        total_pages - current_page,
+        0
+    )
+
+    is_finished = get_checkbox(
+        book["Finalizado Check"]
+    )
+
     return {
 
         "bookId": book_id,
@@ -143,9 +159,18 @@ def build_current_book(book, book_id):
 
         "totalPages": total_pages,
 
+        "pagesRead": pages_read,
+
+        "pagesRemaining": pages_remaining,
+
         "progress": progress,
 
-        "progressValue": round(progress / 100, 2),
+        "progressValue": round(
+            progress / 100,
+            2
+        ),
+
+        "isFinished": is_finished,
 
         "display": {
 
@@ -159,10 +184,14 @@ def build_current_book(book, book_id):
                 f"{progress}%",
 
             "progressBar":
-                create_progress_bar(progress),
+                create_progress_bar(
+                    progress
+                ),
 
             "status":
-                get_status(progress)
+                get_status(
+                    is_finished
+                )
 
         },
 
