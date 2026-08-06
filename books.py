@@ -134,6 +134,17 @@ def build_current_book(book, book_id):
         0
     )
 
+    if total_pages > 0:
+
+        percentage_per_page = round(
+            100 / total_pages,
+            2
+        )
+
+    else:
+
+        percentage_per_page = 0
+
     is_finished = get_formula_boolean(
         book["Finalizado Check"]
     )
@@ -165,10 +176,6 @@ def build_current_book(book, book_id):
 
         "totalPages": total_pages,
 
-        "pagesRead": pages_read,
-
-        "pagesRemaining": pages_remaining,
-
         "progress": progress,
 
         "progressValue": round(
@@ -176,7 +183,21 @@ def build_current_book(book, book_id):
             2
         ),
 
-        "isFinished": is_finished,
+        "reading": {
+
+            "pagesRead":
+                pages_read,
+
+            "pagesRemaining":
+                pages_remaining,
+
+            "percentagePerPage":
+                percentage_per_page,
+
+            "isFinished":
+                is_finished
+
+        },
 
         "display": {
 
