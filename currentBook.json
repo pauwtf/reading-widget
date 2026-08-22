@@ -1,42 +1,33 @@
 {
-    "bookId": "3b125802-a031-8065-b9f0-f8f986ce04aa",
-    "title": "Nos Acompañan Los Muertos",
-    "titleDisplay": "Nos Acompañan\nLos Muertos",
-    "author": "Rafael Perez Gay",
-    "displayAuthor": "— Rafael Perez Gay",
-    "genre": "",
-    "displayGenre": "",
-    "cover": "https://images.cdn3.buscalibre.com/fit-in/360x360/63/30/6330e8285c3c2898443ae5928d8587e9.jpg",
-    "currentPage": 29,
+    "bookId": "3ab25802-a031-80bd-95a1-f451085dcb3b",
+    "title": "El Cielo es Azul, La Tierra es Blanca",
+    "titleDisplay": "El Cielo es Azul, La Tierra\nes Blanca",
+    "author": "Hiromi Kawakami",
+    "displayAuthor": "— Hiromi Kawakami",
+    "genre": "Drama",
+    "displayGenre": "Drama",
+    "cover": "https://covers.openlibrary.org/b/id/13494785-L.jpg",
+    "currentPage": 17,
     "totalPages": 194,
-    "progress": 15,
-    "progressValue": 0.15,
+    "progress": 9,
+    "progressValue": 0.09,
     "reading": {
-        "pagesRead": 29,
-        "pagesRemaining": 165,
+        "pagesRead": 17,
+        "pagesRemaining": 177,
         "percentagePerPage": 0.52,
         "isFinished": false
     },
     "display": {
-        "titleFontSize": 50,
-        "pageText": "Página 29 de 194",
-        "progressText": "15%",
-        "progressBar": "██░░░░░░░░",
+        "titleFontSize": 44,
+        "pageText": "Página 17 de 194",
+        "progressText": "9%",
+        "progressBar": "█░░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-08-22T15:00:17.817760+00:00",
-    "quote": {
-        "id": "3b225802-a031-8010-8ffc-e9aa5675186e",
-        "text": "Viajar es conocer idiotas que hablan otras lenguas",
-        "display": "“Viajar es conocer idiotas que\nhablan otras lenguas”",
-        "fontSize": 19,
-        "page": 13,
-        "pageDisplay": "Pág. 13",
-        "favorite": true,
-        "favoriteIcon": "♥"
-    },
+    "updatedAt": "2026-08-22T15:08:04.721459+00:00",
+    "quote": null,
     "quoteStats": {
-        "total": 1,
-        "favorites": 1
+        "total": 0,
+        "favorites": 0
     }
 }
