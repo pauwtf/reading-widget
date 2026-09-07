@@ -7,24 +7,24 @@
     "genre": "Drama",
     "displayGenre": "Drama",
     "cover": "https://covers.openlibrary.org/b/id/13494785-L.jpg",
-    "currentPage": 17,
+    "currentPage": 50,
     "totalPages": 194,
-    "progress": 9,
-    "progressValue": 0.09,
+    "progress": 26,
+    "progressValue": 0.26,
     "reading": {
-        "pagesRead": 17,
-        "pagesRemaining": 177,
+        "pagesRead": 50,
+        "pagesRemaining": 144,
         "percentagePerPage": 0.52,
         "isFinished": false
     },
     "display": {
         "titleFontSize": 44,
-        "pageText": "Página 17 de 194",
-        "progressText": "9%",
-        "progressBar": "█░░░░░░░░░",
+        "pageText": "Página 50 de 194",
+        "progressText": "26%",
+        "progressBar": "███░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-09-07T04:54:31.930922+00:00",
+    "updatedAt": "2026-09-07T10:03:10.574174+00:00",
     "quote": null,
     "quoteStats": {
         "total": 0,
