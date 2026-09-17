@@ -7,27 +7,36 @@
     "genre": "Drama",
     "displayGenre": "Drama",
     "cover": "https://covers.openlibrary.org/b/id/13494785-L.jpg",
-    "currentPage": 50,
+    "currentPage": 58,
     "totalPages": 194,
-    "progress": 26,
-    "progressValue": 0.26,
+    "progress": 30,
+    "progressValue": 0.3,
     "reading": {
-        "pagesRead": 50,
-        "pagesRemaining": 144,
+        "pagesRead": 58,
+        "pagesRemaining": 136,
         "percentagePerPage": 0.52,
         "isFinished": false
     },
     "display": {
         "titleFontSize": 44,
-        "pageText": "Página 50 de 194",
-        "progressText": "26%",
+        "pageText": "Página 58 de 194",
+        "progressText": "30%",
         "progressBar": "███░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-09-17T00:36:37.983676+00:00",
-    "quote": null,
+    "updatedAt": "2026-09-17T05:28:48.562154+00:00",
+    "quote": {
+        "id": "3de25802-a031-808e-ae61-c6b3693d6944",
+        "text": "La soledad se adueñaba de mi por momentos, así que decidí cantar.",
+        "display": "“La soledad se adueñaba de mi por\nmomentos, así que decidí\ncantar.”",
+        "fontSize": 17,
+        "page": 70,
+        "pageDisplay": "Pág. 70",
+        "favorite": true,
+        "favoriteIcon": "♥"
+    },
     "quoteStats": {
-        "total": 0,
-        "favorites": 0
+        "total": 2,
+        "favorites": 1
     }
 }
