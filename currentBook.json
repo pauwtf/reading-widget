@@ -24,16 +24,16 @@
         "progressBar": "████░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-09-23T23:54:02.612652+00:00",
+    "updatedAt": "2026-09-24T04:15:22.859101+00:00",
     "quote": {
-        "id": "3de25802-a031-8039-b9d1-ecaec530d49b",
-        "text": "Estaba convencida de que el amor y yo no estabamos hechos el uno para el otro",
-        "display": "“Estaba convencida de que el amor\ny yo no estabamos hechos el uno\npara el otro”",
+        "id": "3de25802-a031-808e-ae61-c6b3693d6944",
+        "text": "La soledad se adueñaba de mi por momentos, así que decidí cantar.",
+        "display": "“La soledad se adueñaba de mi por\nmomentos, así que decidí\ncantar.”",
         "fontSize": 17,
-        "page": 67,
-        "pageDisplay": "Pág. 67",
-        "favorite": false,
-        "favoriteIcon": ""
+        "page": 70,
+        "pageDisplay": "Pág. 70",
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
         "total": 2,
