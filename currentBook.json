@@ -1,42 +1,42 @@
 {
-    "bookId": "3ab25802-a031-80bd-95a1-f451085dcb3b",
-    "title": "El Cielo es Azul, La Tierra es Blanca",
-    "titleDisplay": "El Cielo es Azul, La Tierra\nes Blanca",
-    "author": "Hiromi Kawakami",
-    "displayAuthor": "— Hiromi Kawakami",
+    "bookId": "3a025802-a031-8048-84bf-d9cc60c928ae",
+    "title": "La Campana de Cristal",
+    "titleDisplay": "La Campana\nde Cristal",
+    "author": "Sylvia Plath",
+    "displayAuthor": "— Sylvia Plath",
     "genre": "Drama",
     "displayGenre": "Drama",
-    "cover": "https://covers.openlibrary.org/b/id/13494785-L.jpg",
-    "currentPage": 75,
-    "totalPages": 194,
-    "progress": 39,
-    "progressValue": 0.39,
+    "cover": "https://covers.openlibrary.org/b/id/15227278-L.jpg",
+    "currentPage": 15,
+    "totalPages": 311,
+    "progress": 5,
+    "progressValue": 0.05,
     "reading": {
-        "pagesRead": 75,
-        "pagesRemaining": 119,
-        "percentagePerPage": 0.52,
+        "pagesRead": 15,
+        "pagesRemaining": 296,
+        "percentagePerPage": 0.32,
         "isFinished": false
     },
     "display": {
-        "titleFontSize": 44,
-        "pageText": "Página 75 de 194",
-        "progressText": "39%",
-        "progressBar": "████░░░░░░",
+        "titleFontSize": 50,
+        "pageText": "Página 15 de 311",
+        "progressText": "5%",
+        "progressBar": "░░░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-10-05T22:02:33.147394+00:00",
+    "updatedAt": "2026-10-06T02:19:29.790731+00:00",
     "quote": {
-        "id": "3de25802-a031-808e-ae61-c6b3693d6944",
-        "text": "La soledad se adueñaba de mi por momentos, así que decidí cantar.",
-        "display": "“La soledad se adueñaba de mi por\nmomentos, así que decidí\ncantar.”",
-        "fontSize": 17,
-        "page": 70,
-        "pageDisplay": "Pág. 70",
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "id": "3f025802-a031-8059-8962-d6fc0f23ff10",
+        "text": "",
+        "display": "",
+        "fontSize": 20,
+        "page": 0,
+        "pageDisplay": "Pág. 0",
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
-        "total": 2,
-        "favorites": 1
+        "total": 1,
+        "favorites": 0
     }
 }
