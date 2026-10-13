@@ -24,19 +24,19 @@
         "progressBar": "░░░░░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-10-13T01:34:22.087359+00:00",
+    "updatedAt": "2026-10-13T08:30:35.561866+00:00",
     "quote": {
         "id": "3f025802-a031-8059-8962-d6fc0f23ff10",
-        "text": "",
-        "display": "",
-        "fontSize": 20,
-        "page": 0,
-        "pageDisplay": "Pág. 0",
-        "favorite": false,
-        "favoriteIcon": ""
+        "text": "Trabajaba como trabajaba solo para ocultar que tenía roto el corazón",
+        "display": "“Trabajaba como trabajaba solo\npara ocultar que tenía roto el\ncorazón”",
+        "fontSize": 17,
+        "page": 97,
+        "pageDisplay": "Pág. 97",
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
         "total": 1,
-        "favorites": 0
+        "favorites": 1
     }
 }
