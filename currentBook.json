@@ -7,36 +7,36 @@
     "genre": "Drama",
     "displayGenre": "Drama",
     "cover": "https://covers.openlibrary.org/b/id/15227278-L.jpg",
-    "currentPage": 15,
+    "currentPage": 114,
     "totalPages": 311,
-    "progress": 5,
-    "progressValue": 0.05,
+    "progress": 37,
+    "progressValue": 0.37,
     "reading": {
-        "pagesRead": 15,
-        "pagesRemaining": 296,
+        "pagesRead": 114,
+        "pagesRemaining": 197,
         "percentagePerPage": 0.32,
         "isFinished": false
     },
     "display": {
         "titleFontSize": 50,
-        "pageText": "Página 15 de 311",
-        "progressText": "5%",
-        "progressBar": "░░░░░░░░░░",
+        "pageText": "Página 114 de 311",
+        "progressText": "37%",
+        "progressBar": "████░░░░░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-10-18T10:52:41.849533+00:00",
+    "updatedAt": "2026-10-18T14:25:02.354016+00:00",
     "quote": {
-        "id": "3f025802-a031-8059-8962-d6fc0f23ff10",
-        "text": "Trabajaba como trabajaba solo para ocultar que tenía roto el corazón",
-        "display": "“Trabajaba como trabajaba solo\npara ocultar que tenía roto el\ncorazón”",
+        "id": "3fd25802-a031-800d-9412-fc6b1a1f5213",
+        "text": "El problema era que siempre había sido una inepta, solo que no me había parado a pensarlo",
+        "display": "“El problema era que siempre había\nsido una inepta, solo que no me\nhabía parado a pensarlo”",
         "fontSize": 17,
-        "page": 97,
-        "pageDisplay": "Pág. 97",
+        "page": 102,
+        "pageDisplay": "Pág. 102",
         "favorite": true,
         "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 1,
-        "favorites": 1
+        "total": 2,
+        "favorites": 2
     }
 }
