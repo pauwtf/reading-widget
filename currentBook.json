@@ -7,36 +7,36 @@
     "genre": "Drama",
     "displayGenre": "Drama",
     "cover": "https://covers.openlibrary.org/b/id/15227278-L.jpg",
-    "currentPage": 164,
+    "currentPage": 249,
     "totalPages": 311,
-    "progress": 53,
-    "progressValue": 0.53,
+    "progress": 80,
+    "progressValue": 0.8,
     "reading": {
-        "pagesRead": 164,
-        "pagesRemaining": 147,
+        "pagesRead": 249,
+        "pagesRemaining": 62,
         "percentagePerPage": 0.32,
         "isFinished": false
     },
     "display": {
         "titleFontSize": 50,
-        "pageText": "Página 164 de 311",
-        "progressText": "53%",
-        "progressBar": "█████░░░░░",
+        "pageText": "Página 249 de 311",
+        "progressText": "80%",
+        "progressBar": "████████░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-11-20T01:17:36.872091+00:00",
+    "updatedAt": "2026-11-20T09:01:19.129459+00:00",
     "quote": {
-        "id": "40425802-a031-8082-af48-d4a8222016f2",
-        "text": "Es horrible que esa gente siga vi va",
-        "display": "“Es horrible que esa gente siga vi\nva”",
-        "fontSize": 18,
-        "page": 132,
-        "pageDisplay": "Pág. 132",
+        "id": "3fd25802-a031-800d-9412-fc6b1a1f5213",
+        "text": "El problema era que siempre había sido una inepta, solo que no me había parado a pensarlo",
+        "display": "“El problema era que siempre había\nsido una inepta, solo que no me\nhabía parado a pensarlo”",
+        "fontSize": 17,
+        "page": 102,
+        "pageDisplay": "Pág. 102",
         "favorite": true,
         "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 3,
+        "total": 5,
         "favorites": 3
     }
 }
