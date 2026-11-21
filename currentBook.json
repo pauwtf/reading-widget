@@ -24,16 +24,16 @@
         "progressBar": "████████░░",
         "status": "Leyendo"
     },
-    "updatedAt": "2026-11-21T14:56:54.643874+00:00",
+    "updatedAt": "2026-11-21T20:51:24.501308+00:00",
     "quote": {
-        "id": "41e25802-a031-80ea-8aea-d96ab456e5d7",
-        "text": "Cuanto más desahuciado estabas, más te escondían",
-        "display": "“Cuanto más desahuciado estabas,\nmás te escondían”",
+        "id": "40425802-a031-8082-af48-d4a8222016f2",
+        "text": "Es horrible que esa gente siga vi va",
+        "display": "“Es horrible que esa gente siga vi\nva”",
         "fontSize": 18,
-        "page": 204,
-        "pageDisplay": "Pág. 204",
-        "favorite": false,
-        "favoriteIcon": ""
+        "page": 132,
+        "pageDisplay": "Pág. 132",
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
         "total": 5,
