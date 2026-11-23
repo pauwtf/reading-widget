@@ -7,36 +7,36 @@
     "genre": "Drama",
     "displayGenre": "Drama",
     "cover": "https://covers.openlibrary.org/b/id/15227278-L.jpg",
-    "currentPage": 249,
+    "currentPage": 311,
     "totalPages": 311,
-    "progress": 80,
-    "progressValue": 0.8,
+    "progress": 100,
+    "progressValue": 1.0,
     "reading": {
-        "pagesRead": 249,
-        "pagesRemaining": 62,
+        "pagesRead": 311,
+        "pagesRemaining": 0,
         "percentagePerPage": 0.32,
-        "isFinished": false
+        "isFinished": true
     },
     "display": {
         "titleFontSize": 50,
-        "pageText": "Página 249 de 311",
-        "progressText": "80%",
-        "progressBar": "████████░░",
-        "status": "Leyendo"
+        "pageText": "Página 311 de 311",
+        "progressText": "100%",
+        "progressBar": "██████████",
+        "status": "Terminado"
     },
-    "updatedAt": "2026-11-23T02:29:40.444172+00:00",
+    "updatedAt": "2026-11-23T11:10:17.873069+00:00",
     "quote": {
-        "id": "40425802-a031-8082-af48-d4a8222016f2",
-        "text": "Es horrible que esa gente siga vi va",
-        "display": "“Es horrible que esa gente siga vi\nva”",
-        "fontSize": 18,
-        "page": 132,
-        "pageDisplay": "Pág. 132",
+        "id": "42125802-a031-80d6-a874-c65210e3b111",
+        "text": "El ataúd descollaba entre la blancura nívea de flores, la sombra negra de algo que no estaba allí",
+        "display": "“El ataúd descollaba entre la\nblancura nívea de flores, la\nsombra negra de algo que no\nestaba allí”",
+        "fontSize": 16,
+        "page": 309,
+        "pageDisplay": "Pág. 309",
         "favorite": true,
         "favoriteIcon": "♥"
     },
     "quoteStats": {
-        "total": 5,
-        "favorites": 3
+        "total": 6,
+        "favorites": 4
     }
 }
