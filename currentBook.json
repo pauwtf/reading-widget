@@ -24,16 +24,16 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-23T22:41:06.666434+00:00",
+    "updatedAt": "2026-11-24T06:28:09.824761+00:00",
     "quote": {
-        "id": "3fd25802-a031-800d-9412-fc6b1a1f5213",
-        "text": "El problema era que siempre había sido una inepta, solo que no me había parado a pensarlo",
-        "display": "“El problema era que siempre había\nsido una inepta, solo que no me\nhabía parado a pensarlo”",
-        "fontSize": 17,
-        "page": 102,
-        "pageDisplay": "Pág. 102",
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "id": "41e25802-a031-80ea-8aea-d96ab456e5d7",
+        "text": "Cuanto más desahuciado estabas, más te escondían",
+        "display": "“Cuanto más desahuciado estabas,\nmás te escondían”",
+        "fontSize": 18,
+        "page": 204,
+        "pageDisplay": "Pág. 204",
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
         "total": 6,
