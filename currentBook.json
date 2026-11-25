@@ -24,14 +24,14 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-25T02:33:53.764427+00:00",
+    "updatedAt": "2026-11-25T11:46:11.698109+00:00",
     "quote": {
-        "id": "40425802-a031-8082-af48-d4a8222016f2",
-        "text": "Es horrible que esa gente siga vi va",
-        "display": "“Es horrible que esa gente siga vi\nva”",
-        "fontSize": 18,
-        "page": 132,
-        "pageDisplay": "Pág. 132",
+        "id": "42125802-a031-80d6-a874-c65210e3b111",
+        "text": "El ataúd descollaba entre la blancura nívea de flores, la sombra negra de algo que no estaba allí",
+        "display": "“El ataúd descollaba entre la\nblancura nívea de flores, la\nsombra negra de algo que no\nestaba allí”",
+        "fontSize": 16,
+        "page": 309,
+        "pageDisplay": "Pág. 309",
         "favorite": true,
         "favoriteIcon": "♥"
     },
