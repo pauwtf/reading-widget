@@ -24,16 +24,16 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-26T03:44:04.583587+00:00",
+    "updatedAt": "2026-11-26T13:13:52.956797+00:00",
     "quote": {
-        "id": "3f025802-a031-8059-8962-d6fc0f23ff10",
-        "text": "Trabajaba como trabajaba solo para ocultar que tenía roto el corazón",
-        "display": "“Trabajaba como trabajaba solo\npara ocultar que tenía roto el\ncorazón”",
-        "fontSize": 17,
-        "page": 97,
-        "pageDisplay": "Pág. 97",
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "id": "41e25802-a031-80ea-8aea-d96ab456e5d7",
+        "text": "Cuanto más desahuciado estabas, más te escondían",
+        "display": "“Cuanto más desahuciado estabas,\nmás te escondían”",
+        "fontSize": 18,
+        "page": 204,
+        "pageDisplay": "Pág. 204",
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
         "total": 6,
