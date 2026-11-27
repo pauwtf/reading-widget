@@ -24,14 +24,14 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-27T14:13:18.920910+00:00",
+    "updatedAt": "2026-11-27T22:45:46.568393+00:00",
     "quote": {
-        "id": "42125802-a031-80d6-a874-c65210e3b111",
-        "text": "El ataúd descollaba entre la blancura nívea de flores, la sombra negra de algo que no estaba allí",
-        "display": "“El ataúd descollaba entre la\nblancura nívea de flores, la\nsombra negra de algo que no\nestaba allí”",
-        "fontSize": 16,
-        "page": 309,
-        "pageDisplay": "Pág. 309",
+        "id": "3fd25802-a031-800d-9412-fc6b1a1f5213",
+        "text": "El problema era que siempre había sido una inepta, solo que no me había parado a pensarlo",
+        "display": "“El problema era que siempre había\nsido una inepta, solo que no me\nhabía parado a pensarlo”",
+        "fontSize": 17,
+        "page": 102,
+        "pageDisplay": "Pág. 102",
         "favorite": true,
         "favoriteIcon": "♥"
     },
