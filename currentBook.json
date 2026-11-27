@@ -24,16 +24,16 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-26T22:25:38.567393+00:00",
+    "updatedAt": "2026-11-27T04:27:19.269905+00:00",
     "quote": {
-        "id": "41e25802-a031-800c-a649-d8f21473453c",
-        "text": "Solo que mi casa era inc urable",
-        "display": "“Solo que mi casa era inc urable”",
+        "id": "40425802-a031-8082-af48-d4a8222016f2",
+        "text": "Es horrible que esa gente siga vi va",
+        "display": "“Es horrible que esa gente siga vi\nva”",
         "fontSize": 18,
-        "page": 203,
-        "pageDisplay": "Pág. 203",
-        "favorite": false,
-        "favoriteIcon": ""
+        "page": 132,
+        "pageDisplay": "Pág. 132",
+        "favorite": true,
+        "favoriteIcon": "♥"
     },
     "quoteStats": {
         "total": 6,
