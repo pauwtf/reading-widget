@@ -24,16 +24,16 @@
         "progressBar": "██████████",
         "status": "Terminado"
     },
-    "updatedAt": "2026-11-28T04:38:20.980550+00:00",
+    "updatedAt": "2026-11-28T13:40:05.041540+00:00",
     "quote": {
-        "id": "3f025802-a031-8059-8962-d6fc0f23ff10",
-        "text": "Trabajaba como trabajaba solo para ocultar que tenía roto el corazón",
-        "display": "“Trabajaba como trabajaba solo\npara ocultar que tenía roto el\ncorazón”",
-        "fontSize": 17,
-        "page": 97,
-        "pageDisplay": "Pág. 97",
-        "favorite": true,
-        "favoriteIcon": "♥"
+        "id": "41e25802-a031-800c-a649-d8f21473453c",
+        "text": "Solo que mi casa era inc urable",
+        "display": "“Solo que mi casa era inc urable”",
+        "fontSize": 18,
+        "page": 203,
+        "pageDisplay": "Pág. 203",
+        "favorite": false,
+        "favoriteIcon": ""
     },
     "quoteStats": {
         "total": 6,
